@@ -46,3 +46,8 @@ npx quartz build --serve --port 1323 # I have something on 8080 already, changed
 #### oof: split branches
 - this needs to be synced to the actual one....
 	- but then I can't write in obsidian....ugh.
+
+### get the website in front of me; serve it?
+- hmm served it, no index.md file though. wait, what's happening? 
+- beautiful. I went back to the og temp directory from first time `/tmp/tmp.p0ZswtNYLk`, copied file to current index.
+- did it work? yes it did 🔥 push it 
