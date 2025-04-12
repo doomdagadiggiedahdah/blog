@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick Thoughts on ZK-Proofs</title>
+    <style>
+
+        .header {
+            background: #1a365d;
+            color: white;
+            padding: 2rem;
+            margin: -2rem -2rem 2rem -2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 600;
+        }
+
+        .header p {
+            margin: 0.5rem 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1rem;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+
+        h2 {
+            color: #2a4365;
+            border-bottom: 2px solid #4a5568;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        h3 {
+            color: #4a5568;
+        }
+
+        .qa-container {
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .question {
+            background: #ebf4ff;
+            padding: 1rem;
+            border-left: 4px solid #4299e1;
+        }
+
+        .answer {
+            padding: 1rem;
+            border-left: 4px solid #48bb78;
+            background: #f0fff4;
+        }
+
+        .prefix {
+            font-weight: 600;
+            color: #4a5568;
+        }
+
+        .math {
+            font-style: italic;
+            color: #2d3748;
+        }
+
+        strong {
+            color: #2d3748;
+        }
+
+        .intermission {
+            background: #fff5f5;
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            border-left: 4px solid #f56565;
+        }
+
+        p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Quick Thoughts on ZK Proof Foundations</h1>
+        <p>A friendly exploration of zero-knowledge proof basics through dialogue</p>
+    </div>
+    <h2>Intro</h2>
+    <p>I like holding hands. This is a hand-holding post on the basic ideas of what makes <strong>zero-knowledge proofs</strong> work.</p>
+
+    <h2>Dialogue</h2>
+    
+    <div class="qa-container">
+        <div class="question">
+            <p><span class="prefix">Question: </span>So like, what is it?</p>
+        </div>
+        <div class="answer">
+            <p><span class="prefix">Answer: </span>Zero knowledge proof, like a proof but without needing to reveal that baseline info.</p>
+        </div>
+    </div>
+
+    <div class="qa-container">
+        <div class="question">
+            <p><span class="prefix">Question: </span>What?</p>
+        </div>
+        <div class="answer">
+            <p><span class="prefix">Answer: </span>Yeah I know.</p>
+        </div>
+    </div>
+
+    <div class="qa-container">
+        <div class="question">
+            <p><span class="prefix">Question: </span>But how?</p>
+        </div>
+        <div class="answer">
+            <p><span class="prefix">Answer: </span>Well, I think saying that "I have <strong>proof</strong> this is true" is actually a worse way to say this. Instead, it's better to say "it's probably true".</p>
+        </div>
+    </div>
+
+    <div class="qa-container">
+        <div class="question">
+            <p><span class="prefix">Question: </span>.......</p>
+        </div>
+        <div class="answer">
+            <p><span class="prefix">Answer: </span>Quick background; there's two people in this equation, a <span class="math">prover</span> (the one saying "believe me!") and the <span class="math">verifier</span> (the one saying, "but how do I actually know?"). The <span class="math">prover</span> wants the <span class="math">verifier</span> to believe them, but doesn't want to give out some type of information. (let's just say the <span class="math">prover</span> doesn't want to share their birthdate, but wants to go a club; <strong>they need to prove that they're over 21</strong>.)</p>
+        </div>
+    </div>
+
+    <div class="qa-container">
+        <div class="question">
+            <p><span class="prefix">Question: </span>Ok, <span class="math">prover</span> needs to show they're over 21, but doesn't want to show their birthday.</p>
+        </div>
+        <div class="answer">
+            <p><span class="prefix">Answer: </span>Yup. Think, "proof = true or false", keep hidden info</p>
+        </div>
+    </div>
+
+    <div class="qa-container">
+        <div class="question">
+            <p><span class="prefix">Question: </span>Great</p>
+        </div>
+        <div class="answer">
+            <p><span class="prefix">Answer: </span>Great</p>
+        </div>
+    </div>
+
+    <div class="qa-container">
+        <div class="question">
+            <p><span class="prefix">Question: </span>But wait, proof = true or false, but you said it's better to say "probably true"?</p>
+        </div>
+        <div class="answer">
+            <p><span class="prefix">Answer: </span>Ya, so what happens with some fancy computer magic is the <span class="math">verifier</span> (the one saying "can I actually believe the <span class="math">prover</span>?") will give a bunch of True/False tests to the <span class="math">prover</span>. These tests basically say (in computer terms) "ok, if you actually were over 21, then you should pass <em>this test</em>!" The <span class="math">prover</span> can now 1. either guess correctly each time (which sounds hard to do maybe), or they 2. actually are over 21 and you can pass the test.</p>
+        </div>
+    </div>
+
+    <div class="qa-container">
+        <div class="question">
+            <p><span class="prefix">Question: </span>But wouldn't the answer just be "yes" each time? That seems pretty easy to hack</p>
+        </div>
+        <div class="answer">
+            <p><span class="prefix">Answer: </span>Yeah that would, so they change it up a bit. basically though, if you have the ground truth, if you are over 21, it's easy to answer correctly. If you don't, you just have to guess. You have to guess right <em>each time they ask you a question</em></p>
+        </div>
+    </div>
+
+    <div class="qa-container">
+        <div class="question">
+            <p><span class="prefix">Question: </span>😲😯😮</p>
+        </div>
+        <div class="answer">
+            <p><span class="prefix">Answer: </span>‼️🤯😵</p>
+        </div>
+    </div>
+
+    <div class="qa-container">
+        <div class="question">
+            <p><span class="prefix">Question: </span>Each time?</p>
+        </div>
+        <div class="answer">
+            <p><span class="prefix">Answer: </span>Ya, imagine having to guess correctly a whole bunch of times, and if you mess up once, <em>you're done kiddo</em></p>
+        </div>
+    </div>
+
+    <div class="qa-container">
+        <div class="question">
+            <p><span class="prefix">Question: </span>Oh my</p>
+        </div>
+        <div class="answer">
+            <p><span class="prefix">Answer: </span>And this is also where "probably true" comes in. If someone guessed it right once, that's only 50% chance (true/false). But what if they had to get it right twice? That's 25% (50% x 50%). Three times? 12.5%.</p>
+        </div>
+    </div>
+
+    <div class="qa-container">
+        <div class="question">
+            <p><span class="prefix">Question: </span>And it just keeps going down?</p>
+        </div>
+        <div class="answer">
+            <p><span class="prefix">Answer: </span>Yup, put into your calculator (1/2)^{the number of tests you'd give}. (first try the above numbers, noting that you have to move the decimal two places to the right to get percentages like above. (1/2)^1 = .5 , but move it two and you've got 50%)</p>
+        </div>
+    </div>
+
+    <h3>Intermission</h3>
+    <div class="intermission">
+        <p><strong>You should actually plug some numbers</strong> into the calculator to see how quickly the number goes down. Ask yourself this, if you were the <span class="math">verifier</span>, what would your acceptable percentage be? How small of a chance would you accept of some rando correctly guessing each of your tests? How small does it have to be to accept that guessing correctly probably didn't happen?</p>
+    </div>
+
+    <h3>Back to the show</h3>
+
+    <div class="qa-container">
+        <div class="question">
+            <p><span class="prefix">Question: </span>Wow, ten tests gives a <span class="math">0.0976562%</span> of someone guessing correctly, or <span class="math">1/1024</span> chance of getting it right.</p>
+        </div>
+        <div class="answer">
+            <p><span class="prefix">Answer: </span>Crazy right! And now again imagine yourself as the <span class="math">verifier</span>. At what percentage do you say that you're convinced? The actual percentage is something fun to think about, but the more important thing is to realize that <strong><em>the <span class="math">verifier</span> actually never sees the evidence of whether or not someone is lying, but instead the <span class="math">verifier</span> sees a low enough probability that they're not lying.</em></strong></p>
+        </div>
+    </div>
+
+    <div class="qa-container">
+        <div class="question">
+            <p><span class="prefix">Question: </span>Ohhhhh</p>
+        </div>
+        <div class="answer">
+            <p><span class="prefix">Answer: </span>Yeahhhhhhh. And just to wrap it up: the <span class="math">verifier</span> never actually <strong>knows</strong> that the <span class="math">prover</span> is telling the truth (this <em>is</em> a <strong>zero knowledge</strong> proof). The <span class="math">verifier</span> is just convinced at some point that it is.</p>
+        </div>
+    </div>
+</body>
+</html>

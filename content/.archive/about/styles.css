@@ -1,0 +1,66 @@
+body {
+  background-image: url("https://i.imgur.com/eIk2VB4.png");
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  /* background-position: center; */
+}
+
+.header {
+  font-family: "Roboto", sans-serif;
+  font-size: 50px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  opacity: 0.8;
+  position: relative; /* Added to position the pseudo-element */
+}
+
+/* /* This will create the vertical bar */
+/* .header::before {
+  content: '';
+  position: absolute;
+  left: 33%; 
+  height: 80%; 
+  width: 2px; 
+  background-color: #000;
+  opacity: 1;
+} */
+
+.header-left,
+.header-right {
+  max-width: 100%;
+  text-align: center;
+  padding: 1px;
+}
+
+/* The .header-left will automatically take up 33% due to the pseudo-element */
+/* .header-right {
+  flex-grow: 1;
+} */
+
+h2 {
+  font-family: Impact;
+}
+
+main {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 8rem auto;
+  max-width: 45%;
+  /* padding: 2rem; */
+  text-align: center;
+  opacity: 0.8;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
+  margin-bottom: 15px;
+}
+
+.end {
+  margin-bottom: 15px;
+}
+
+/* Ok. What's the MVP look like? I gotta be able to send something to Emre. */
