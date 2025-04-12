@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Making the simplest game bot I could think of</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/mvp.css" />
+</head>
+<body>
+<h1 id="prototyping-and-the-beauty-of-simplicity">Prototyping and the beauty of simplicity</h1>
+<p>2024.01.15 - 18:26 Status: Tags:</p>
+<ul>
+<li>I’m a fan of prototypes. Making small, simple, and quick proof of concepts of an idea gives me a lot of inspiration. It’s nice to see things <em>work.</em></li>
+<li>It’s especially nice to see things work when you’re unfamiliar with a new field and you want to nail down parameters; thus making quick prototypes that demonstrate whether or not you <strong>actually understand what the hell you’re talking about</strong> is an important skill to develop.</li>
+<li>So, let’s break a video game.</li>
+</ul>
+<h2 id="inspiration">inspiration</h2>
+<ul>
+<li>Scrolling through youtube I found someone <a href="https://www.youtube.com/watch?v=wCho_BdpdyY&amp;list=WL&amp;index=17">showing the basics</a> of how a bot could be made and I thought again, “wow, they made it simpler than I would’ve thought to do it” (which is a huge compliment in my eyes), and decided I could do that, and maybe even simpler.</li>
+<li>I found this random neocities website https://pokemoninc.neocities.org/ that’s pretty simple. Click the button and your points go up. Get points to buy things that passively increase your points, the more expensive the quicker they add points. Very, very simple and perfect for building your very first bot on</li>
+</ul>
+<h2 id="script">script</h2>
+<ul>
+<li><a href="https://youtu.be/aNfngnGXDwo">The video here</a> shows the python script and bash script working together</li>
+<li><code>main.py</code></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="im">import</span> pyautogui <span class="im">as</span> pyg</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>):</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    pyg.click()</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    pyg.click()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>    pyg.click()</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    pyg.click()</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>    pyg.click()</span></code></pre></div>
+<ul>
+<li>yolo</li>
+<li>and <code>rage.sh</code></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="fu">sleep</span> 3</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="ex">python</span> main.py <span class="kw">&amp;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="ex">python</span> main.py <span class="kw">&amp;</span></span></code></pre></div>
+<ul>
+<li>create both of these in a folder and then run <code>rage.sh</code> which gives you enough time to switch over to the right spot and rake in those imaginary points on a screen.</li>
+<li>there’s nothing crazy here, but with this bash script you can crank this until your browser or computer becomes unresponsive (bring up your system monitor to get a sense of how many clicks per second it can handle).</li>
+</ul>
+<h2 id="optimizations">optimizations</h2>
+<ul>
+<li>yeah, sure. run <code>pyg.click(clicks=42069, interval=.000001)</code> or whatever and get as many of those worthless points as you can</li>
+<li>the main idea behind this idea is that you should aim for simplicity if you’re uncertain (and for the haters optimization is actually one of my favorite things, and may be why I didn’t think about this concept previously)</li>
+</ul>
+</body>
+</html>

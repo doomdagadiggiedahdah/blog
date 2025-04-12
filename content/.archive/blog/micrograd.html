@@ -1,0 +1,403 @@
+<p>&nbsp;</p>
+<article><header>
+<h1>The spelled-out intro to neural networks and backpropagation building micrograd</h1>
+<p><strong>Year:</strong> 2022</p>
+<p><strong>Abstract:</strong> This is the most step-by-step spelled-out explanation of backpropagation and training of neural networks. It only assumes basic knowledge of Python and a vague recollection of calculus from high school.</p>
+<p><strong>Site:</strong> <a href="https://www.youtube.com/watch?v=VMj-3S1tku0">YouTube Video</a></p>
+<p><em>2024.09.21 - 19:52</em></p>
+<p><strong>Tags:</strong> #litnote</p>
+</header>
+<section>
+<h2>Links</h2>
+<ul>
+<li>Start back up <a href="https://www.youtube.com/watch?v=VMj-3S1tku0&amp;t=3781s">here</a> or so
+<ul>
+<li>Figure out why the gradient calc of w1, x1, w2, x2 make sense</li>
+</ul>
+</li>
+<li>My <a href="https://colab.research.google.com/drive/10NCCg54cfheQNh-UkpQJRWEf_OHuzgHl#scrollTo=t88UV6jCTb2c">notebook</a>.</li>
+<li>When I'm done with this video, I should be able to complete <a href="https://colab.research.google.com/drive/1FPTx1RXtBfc4MaTkf7viZZD4U2F9gtKN?usp=sharing">this notebook</a>.</li>
+<li>When I'm done with this video, I would like to publish these notes (raw, and then polished).</li>
+<li><a href="https://github.com/karpathy/micrograd">Micrograd GitHub</a>.</li>
+</ul>
+</section>
+<section>
+<h1>Reflections After Having Gone Through It All</h1>
+<ul>
+<li>I loved this, I can't wait to go through again and get an even deeper understanding of how it all comes together.
+<ul>
+<li>Down to writing the boiler plate functions to manually running the process of gradient descent; this reminds me of an experience I could continually go back to like I did with <a href="https://www.youtube.com/watch?v=rjLJIVoQxz4">Eugene's calculus video</a>.</li>
+<li>The move for this will be to:
+<ol>
+<li>Break down the entire video/project into sections,</li>
+<li>Test myself on those individual sections and getting those correct until I can</li>
+<li>Recite the entire library from memory. That's only ~150 lines or so? Poets do so much more than that.</li>
+</ol>
+<ul>
+<li>To clarify: the goal would be to write the library from scratch and then train a NN on a sample dataset; start to finish. Speed running would be cool too.</li>
+<li>The code is helpful, but also understanding the general structure and purpose that it's serving would be the main goal. I want something that I can take to any future NN and understand how it extends this micrograd library.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Another thing I want to do is train a NN to do something like MNIST, or some simple classification task (maybe MNIST is too difficult). But writing and training a network from scratch (and speedrunning that? that'd be cool.)</li>
+<li>All said, my current experience is that I understand more, but have more questions now too. I do feel more solid on some things (the nuts and bolts of forward pass, backprop, update, repeat; how you would go about writing functions for your nodes to be operated on), but also my surface area has been revealed. There's a lot here.</li>
+<li>I loved being able to break things into simple parts; seeing the loss drop when going through manual gradient descent and checking the updated weights was nice. A sanity check.</li>
+<li>(I'm sad that I lost my original notes. I feel there was more here that I could've built on top of.)</li>
+<li>Oh, contextualization. Many of the terms I'd heard came together and were put in place. Hearing just how gradient descent related to the forward, backward, and update processes; seeing the activation function being used, seeing how the neuron code translated to the <a href="https://www.researchgate.net/figure/Neural-net-Structure-with-an-Activation-Function-Source-CS231n-Stanford-2017_fig5_364814302">neuron image</a>; on an engineering level, I loved getting to see how backprop was implemented to not be a mess. I'd especially like to think about this pattern more.</li>
+<li>It was also interesting how I was guessing a good amount of the questions Andrej brought up. I have some intuition built up, and more than I thought.</li>
+</ul>
+</section>
+<section>
+<h2>Sections I'd Like to Go Through Again</h2>
+<ul>
+<li>[[@andrejkarpathySpelledoutIntroNeural2022#Manual backpropagation example number two a neuron.|example two]]
+<ul>
+<li>Taking the gradients of $x2$ and $w2$; not immediately obvious</li>
+<li>This is the chain rule. Maybe I run through some of these to get a refresh</li>
+<li>I'm also not thinking about this wrt to the main function. I think that's what throwing me off. Thinking too local.</li>
+<li>Maybe it'd help to put the walking/biking/car example next to this to see</li>
+</ul>
+</li>
+<li>The chain rule
+<ul>
+<li>There's part of this that I'm not clear on</li>
+</ul>
+</li>
+<li>He mentions "storing it in a closure" at <a href="https://youtu.be/VMj-3S1tku0?si=IiB1nW1aHd6MjRWS&amp;t=4236">this timestamp</a>. What does that mean?</li>
+<li>I'm a bit confused on the chain rule usage in the tanh h <code>_backward()</code> call. Could use some digging.</li>
+<li>Recursion still gets me. I should get some exercises for thinking about that properly. Maybe just having a 3 layer deep example is a fine thing. Think about how to think about how to think about</li>
+<li>He mentions the chain rule and how it says "you should add", I'm not familiar with this. Would like to look it up. <a href="https://youtu.be/VMj-3S1tku0?si=ihbumMLnd9uCUX54&amp;t=5113">Timestamp</a>.</li>
+<li>(This is after breaking up tanh, <a href="https://youtu.be/VMj-3S1tku0?si=EOClhqXdVxsY-url&amp;t=5943">timestamp</a>) I'm still not sure how the equations plug into this all. There's equations, but this is what will generate text and images? How are these equations even formed?</li>
+<li>At this point I know for sure I wouldn't have invented this script. I could write a decent chunk of this while referencing the library and get it correct. If I did that 10 times I could write it from memory. I would like to do this, test myself on writing the full library from scratch, see how quickly I could do it.
+<ul>
+<li>Reminds me of the maj/min/aug/dim chords that Tyler had assigned to me. This would be fun.</li>
+<li>Oh, could chunk it instead of trying to do the entire thing. "Today I will focus on writing out the operations".</li>
+<li>Have tests written out that I can run to see if it's working correctly.</li>
+</ul>
+</li>
+<li>These nested for loops are helpful, but I can't parse them yet (Collecting all of the parameters of the neural net.)</li>
+<li>I like his demo that walks through, a bit more complicated and in depth. That'd be fun to walk through.</li>
+</ul>
+</section>
+<section>
+<h1>Musings</h1>
+<h2>(2024.09.23)</h2>
+<ul>
+<li>I don't have a lot of time today, so I'm going to keep this quick.</li>
+<li>I think I'm having an issue with the chain rule; it's not completely structured in my head. Old school notes to save the day.
+<ul>
+<li>Pretty colors.<img src="IMG20240923182826.jpg" alt="IMG20240923182826" /></li>
+<li><img src="IMG20240923182817.jpg" alt="IMG20240923182817" /></li>
+</ul>
+</li>
+<li>I'm currently not able to visualize the math formula that backpropagation is taking. It's not crystal clear to me.</li>
+<li>Guess. The equation $\frac{d}{dx} = f'(g(x)) \cdot g'(x)$</li>
+<li>Oh hey, backpropagation propagates derivatives.</li>
+<li>Hmmm, you get the gradient to see how it would change if you added a slight amount to the parameter. You then get the learning rate and change the gradient by that much (the learning rate). This makes sense.</li>
+</ul>
+</section>
+<section>
+<h2>Section Walkthroughs</h2>
+<ul>
+<li>Quite sad. My computer crashed and all my notes were lost. Ah well. Life goes on.</li>
+<li>One thing I mentioned was that I could take this musings section and remove all of the miscellaneous ramblings. I can post that and then also have a Git file to overlook it, ensuring that nothing too important is getting left out. Then, I can post that to show off a bit.</li>
+<li>
+<h3>Manual Backpropagation Example Number One: Simple Expressions</h3>
+<ul>
+<li>At this moment <a href="https://youtu.be/VMj-3S1tku0?si=WKxOr0tr8BEM320K&amp;t=2314">"And then, the numerical gradient is just estimating it using a small step size. Now we're getting to the crux of backpropagation. This will be the most important node to understand because if you understand the gradient for this node, you understand all of backpropagation and all of the training of neural nets, basically."</a>
+<p>(( you know, this was the perfect time to lose the rest of my notes. Apparently this is the meat of it all, so if I can work this out then the rest of it is pretty straightforward. ))</p>
+</li>
+<li>So, where were we? The most important part. Having a node to take the derivative of that influences another node that we already know the derivative of. There's some trick there. Intuitively, you can see that increasing a positive number that's influencing a negative slope would create a larger negative. Ok, that tells us the direction, but by how much? Is there some trick here?</li>
+<li>Hmmm, this is where the chain rule comes in.
+<ul>
+<li>Ok, so I wasn't completely off; you multiply them, but you multiply the derivatives.</li>
+<li>Oh duh $dz/dx = dz/dy * dy/dx$</li>
+<li>RHS has the denom and num of terms 1 and 2</li>
+<li>
+<blockquote>"Intuitively, the chain rule states that knowing the instantaneous rate of change of z relative to y and that of y relative to x allows one to calculate the instantaneous rate of change of z relative to x as the product of the two rates of change. As put by George F. Simmons: 'If a car travels twice as fast as a bicycle and the bicycle is four times as fast as a walking man, then the car travels 2 &times; 4 = 8 times as fast as the man.'"</blockquote>
+- <a href="https://en.wikipedia.org/wiki/Chain_rule">Source</a></li>
+<li>This reminds me of that time I spent like 3 hours computing a huuuuuge chain rule function, "for head room". Damn.</li>
+</ul>
+</li>
+<li>Huh, so knowing how the chain rule applies to this is the biggest thing...
+<ul>
+<li>Ok, so what does this give us? It gives us the derivative of L wrt {your chosen node}. And why is that necessary? Because the gradient will tell you the largest ascent, and you need gradients for those...</li>
+</ul>
+</li>
+<li>Ok, so now we just do the chain rule again for the final nodes. I want to get the derv for b.</li>
+<li>Ok cool. I still don't know what the derivatives will be used for, but I get that we'll compute them and was able to derive them myself.</li>
+</ul>
+</li>
+<li>
+<h3>Preview of a Single Optimization Step</h3>
+<ul>
+<li>Ooook, I think he just hit why it's important to have the derivative.</li>
+</ul>
+</li>
+<li>
+<h3>Manual Backpropagation Example Number Two: A Neuron</h3>
+<ul>
+<li><img src="Pasted image 20240921235424.png" alt="Pasted image 20240921235424" /></li>
+<li>Really cool image (<a href="https://www.researchgate.net/figure/Neural-net-Structure-with-an-Activation-Function-Source-CS231n-Stanford-2017_fig5_364814302">link</a>):
+<ul>
+<li>$x_0$, $x_1$, $x_2$ are inputs</li>
+<li>Synapse that have weights $w_0x_0$ (but where are the synapses in the cell pic? 🙁)</li>
+<li>Etymology of synapse: "synaptein 'to clasp, join together, tie or bind together, be connected with,' from syn- 'together' (see syn-) + haptein 'to fasten' (see apse)." - <a href="https://www.etymonline.com/word/synapse">Source</a></li>
+<li>Seeing these multiple inputs for whatever reason reminds me of <a href="https://www.youtube.com/watch?v=VAJeJAr3J7I&amp;list=PL7w4cOVVxL6GojicLv-6sTL-l63pVSPQP&amp;index=1">Simon Hutchinson's ANN in PD videos</a>.</li>
+<li>Ok, sum all the $w*x + b$, then apply it to the activation function? As in $f_a(\sum(w_i*x_i + b))$? Karpathy: "yes."</li>
+<li>Ohhh tanh, Simon uses this one.</li>
+</ul>
+</li>
+<li>I definitely got scared when he said "we want to have all these pointers" and I thought "oh man, I feel like that's going to get hairy quick" but he's just referring to variables.</li>
+<li>Damn, I'm also realizing how he's not introducing concepts until they're needed (we haven't added subtraction or division yet. Reducing the number of concepts needed in order to grasp the ideas. This is great).</li>
+<li>As well as teaching, I like this method of coding too.
+<ul>
+<li>Go through and make only what it is you need to get to the next step. When you get blocked,</li>
+</ul>
+</li>
+<li>We implemented the tanh(), now I feel confident about implementing a different activation function. Just code the math into a function on the Value class.</li>
+<li>Cool, the rest of the nodes; computing them. Wait, do we do the $x1w1 + x2w2$ as well? Oh, it's a plus node, just multiplies by one. And so does the next layer, then we have the last layer.
+<ul>
+<li>I was wrong, gradient isn't one it's whatever the previous node was.</li>
+</ul>
+</li>
+<li>For the last layer, we only want the weights. So we're taking $do/dw1$ and $do/dw2$. And we only need two nodes, the previous node and $w1$, $w2$.</li>
+<li>One thing I notice is how computing the gradients of all the nodes gives you a quick reference of how to change the final value to whatever you want. This is starting to make more sense.</li>
+<li>"The gradient is zero" of $w2$. So that means it won't move then. No sense moving that since it'll have no effect.</li>
+<li>Also, making more sense that I'm looking at the chain rule. I didn't quite get why <code>x1.grad = w1.data * x1w1.grad</code> was correct, but the <code>w1.data</code> is the result of taking the derivative of that function $x1 * w1$ with respect to $w1$. Checks out.</li>
+</ul>
+</li>
+<li>
+<h3>Implementing the Backward Function for Each Operation</h3>
+<ul>
+<li>Ahh, for each operation. So the value object stores the <code>_op</code> variable. Backpropagation computes the gradients of the nodes. There's going to be recursion.
+<ul>
+<li>The children, in $L = a * b$, $L$'s children are $a,b$. The <code>_prev</code> variable is populated when <code>__add__()</code> or <code>__mul__()</code> is used (<code>(self, other)</code>). And so somehow, they're going to be used.</li>
+<li>(( Note: I like this pre-training that I'm doing. New video section comes up, I make guesses as to how it'll work, I watch the video and get feedback; updating in real time. ))</li>
+<li>I don't know how the tanh grad will be programmed.</li>
+</ul>
+</li>
+<li>Addition, that should be easy, no?
+<ul>
+<li>Hmm, so backprop will take the children and the op. <code>backward()</code> must operate on the children.</li>
+<li>If addition:
+<ul>
+<li><code>children_1.grad = parent.grad</code> (<code>parent.grad</code> would be <code>self.grad</code>)</li>
+<li><code>children_2.grad = parent.grad</code></li>
+</ul>
+</li>
+<li>(And then there's another thing about getting the derivatives of the next layers....will come back to that.)</li>
+</ul>
+</li>
+<li>If mul:</li>
+<li>And so to get this to all of the nodes, build off of what <code>draw_dot</code> is doing and do this until no children. Yes. I think a pseudo code version of this would suffice:</li>
+<li>
+<pre><code>### 12:39
+def backward(root):
+    ## get the computation graph
+    def trace(root):
+        nodes, edges = set(), set()
+        def build(v):
+            if v not in nodes:
+                nodes.add(v)
+                for child in v._prev:
+                    edges.add((child, v))
+                    build(child)
+        build(root)
+        return nodes, edges
+
+    nodes, edges = trace(root)
+    
+    ## for each node with children, compute gradient of children.
+    def get_grad(nodes, edges):
+        for node in nodes:
+            if len(node._prev) != 0:
+                for child in node._prev: # can maybe get rid of this. iterate later.
+                    if child._op == "+":
+                        child.grad = node.grad
+                    if child._op == "*":
+                        ## and this is where it gets tricky if having more than 2 children....
+                        ## this is a good start I think. let's check back in.
+</code></pre>
+</li>
+<li>Yeah I think he went more big brain. (1:10:23) He's looking at the <code>__add__()</code>, and is he just computing the gradient right then? That's crazy.
+<ul>
+<li>(( Just got an internal sense of "it's allllll coming together". That's a peaceful feeling ))</li>
+<li>Madman, he did it
+<ul>
+<li>I like that this is happening in the object itself. Similar to GameBench in how I made an object that had a list of cards and didn't have to do some wacky "lining up" elsewhere to get them to be processed on (in the pseudo code above I would've been handling the <code>_op</code>'s and whatnot later, outside of the object). Instead, it's taken care of right here. That's nice.</li>
+</ul>
+</li>
+<li>He mentions "storing it in a closure" at <a href="https://youtu.be/VMj-3S1tku0?si=IiB1nW1aHd6MjRWS&amp;t=4236">this timestamp</a>. What does that mean? (Posted to "next items" above)</li>
+<li>I wonder why in mul <code>out._backward = backward()</code> is being called as opposed to add. Maybe that's the closure.
+<ul>
+<li>Glad I paid attention to this, they shouldn't have had the parenthesees!</li>
+<li>That answers one question, still not sure how that's happening. The closure.</li>
+</ul>
+</li>
+<li>I'm a bit confused on the chain rule usage in the tanh h <code>_backward()</code> call. Could use some digging.</li>
+<li>Cool, all the stuff works. This feels really good.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3>Implementing the Backward Function for a Whole Expression Graph</h3>
+<ul>
+<li>So it needs to go right to left (it builds off of the gradients that it's already built). How do? The <code>_children()</code> makes the most sense to me.....but I just know there's some big brain method he'll pull out. Lol immediately. "Topological sort".</li>
+<li>Recursion still gets me. I should get some exercises for thinking about that properly. Maybe just having a 3 layer deep example is a fine thing. Think about how to think about how to think about.</li>
+<li>(( Another note on his teaching style. He goes through hard coded examples first and then makes the general rules out of them. ))</li>
+<li>"We shouldn't be too happy with ourselves because..." just as I start laughing.</li>
+</ul>
+</li>
+<li>
+<h3>Fixing a Backprop Bug When One Node is Used Multiple Times</h3>
+<ul>
+<li>The bug is also surprising to me. This works right?</li>
+<li>Yeah makes sense, using the same node multiple times; overwriting.</li>
+<li>He mentions the chain rule and how it says "you should add", I'm not familiar with this. Would like to look it up. <a href="https://youtu.be/VMj-3S1tku0?si=ihbumMLnd9uCUX54&amp;t=5113">Timestamp</a>.</li>
+</ul>
+</li>
+<li>
+<h3>Breaking Up a Tanh, Exercising with More Operations</h3>
+<ul>
+<li>Exp... how gradient. Need to think about this better.</li>
+<li>This operation is for creating a new node using previous ones, right?</li>
+<li>$c = a^2$ oh sure, it's just exponents, not another node (yet).</li>
+<li>(( It's really helpful walking through how he would create software like this, going from the basic basic uses to more generalized ones. This gives a sense of how I should do it in the future. ))</li>
+<li>Ahh, using the same node; good thing we took care of that. And then this would just be multiplying the node by itself. Actually no, this is talking about $e^x$.</li>
+<li>I like this thing he's doing here:
+<ul>
+<li>A / B == A * 1/B == A * B**-1</li>
+<li>So he's going to implement the exponentiation (how is this different than the last one's name) to cover this.</li>
+<li>The name, they call the power.</li>
+</ul>
+</li>
+<li>I like writing this API. It's so clean, reminds me of proofs.</li>
+<li>We just wrote out all the component pieces to get a different version of the tanh function, now we're going to sub out.
+<ul>
+<li>(( I like that there was a way to get it done that was easy, and then he went back through and rebuilt with more expansive tooling. A design pattern to make note of. "Simplify a function only after it's correct" ))</li>
+</ul>
+</li>
+<li>Ok, so let's get the other: <img src="Pasted image 20240924161416.png" alt="Pasted image 20240924161416" />
+<ul>
+<li>Going for the last one. So let's do the top term. I think I'm psyching myself out too much. This was easier than I thought.</li>
+<li>And now that the whole thing is working, I'm glad he didn't start off with the complicated built out one. This new one has many more.</li>
+<li>(This is after breaking up tanh, <a href="https://youtu.be/VMj-3S1tku0?si=EOClhqXdVxsY-url&amp;t=5943">timestamp</a>) I'm still not sure how the equations plug into this all. There's equations, but this is what will generate text and images? How are these equations even formed?</li>
+<li>At this point I know for sure I wouldn't have invented this script. I could write a decent chunk of this while referencing the library and get it correct. If I did that 10 times I could write it from memory. I would like to do this, test myself on writing the full library from scratch, see how quickly I could do it.
+<ul>
+<li>Reminds me of the maj/min/aug/dim chords that Tyler had assigned to me. This would be fun.</li>
+<li>Oh, could chunk it instead of trying to do the entire thing. "Today I will focus on writing out the operations".</li>
+<li>Have tests written out that I can run to see if it's working correctly.</li>
+</ul>
+</li>
+<li>(( Another thing that I like about this micrograd project is that I can see the absolute basics. When I see PyTorch or something that builds on top of it, I understand where the changes are coming from and what exactly is being altered. That context is really nice. ))</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3>Building Out a Neural Net Library (Multi-Layer Perceptron) in Micrograd</h3>
+<ul>
+<li>And just to take stock from here, what we've done is written everything we need to perform a: forward pass and backpropagation.</li>
+<li>We haven't covered how to update weights or iterating through multiple passes.</li>
+<li>(( I like being able to think of things and then place them in relevant areas so they continue to be useful. For example, there are small commands I type to test if addition works for that operation; check to see if it works and then place it in the tests file. Don't need to waste that thought. ))</li>
+<li>"Because we can build out pretty complicated math expressions, we can now build out neural networks." The relation isn't clear to me.
+<ul>
+<li>"Neural nets are just a specific class of mathematical expressions." Ok, that's better; not completely clear though.</li>
+</ul>
+</li>
+<li>Starting with a single neuron. I imagine this will be a class; CALLED IT
+<ul>
+<li>Cool, a neuron will create a <code>nin</code> number of inputs. Think back to pic of [[@andrejkarpathySpelledoutIntroNeural2022#Manual backpropagation example number two a neuron.|Manual backpropagation example]] (<a href="https://www.researchgate.net/figure/Neural-net-Structure-with-an-Activation-Function-Source-CS231n-Stanford-2017_fig5_364814302">link</a>)</li>
+<li>(( I'm loving this. This is so cool. Building a neural network from scratch. From scratch is a worthy goal damn ))</li>
+</ul>
+</li>
+<li>For <code>__call__</code> we want to do $w*x + b$. "Pair wise"; that's the term I've been looking for. Pair wise.</li>
+<li>Wow, and these are the activations. (( I'm so ready to have an in depth understanding of all these sections. This is so exciting. )) And this is the forward pass on a single neuron.</li>
+<li>And now a layer. Neat.</li>
+<li>And you know, I'm not seeing the connection between these neurons and the computation graphs. That's still distinct in my head.</li>
+<li>You define how many neurons you want out as well? Neat.</li>
+<li>And so now we just make the MLP. Multiple layers.
+<ul>
+<li>So to recreate would it be</li>
+</ul>
+</li>
+<li>I don't fully understand the MLP class, I think it would just take a couple minutes.
+<ul>
+<li>3, [4,4,1]? That's it! Hell yeah.</li>
+<li>Very cool. Ran a forward pass of an entire NN. This is cool.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3>Creating a Tiny Dataset and Writing the Loss Function</h3>
+<ul>
+<li>And this is cool; there's this dataset:
+<pre><code>xs = [
+    [2.0, 3.0, -1.0],
+    [3.0, -1.0, 0.5],
+    [0.5, 1.0, 1.0],
+    [1.0, 1.0, -1.0],
+]
+ys = [1.0, -1.0, -1.0, 1.0] ## huh, "desired targets"</code></pre>
+</li>
+<li>Where you input the first line <code>[2.0, 3.0, -1.0],</code> and you'd like to return <code>1.0</code>, input <code>[3.0, -1.0, 0.5],</code> and return <code>1.0</code> etc. What I'm seeing is you convert your inputs to these numbers, and then there's a number we get back. The final one looks like a classifier. I was right!</li>
+<li>(( Also, there must be a cool application of training a network with micrograd. Something SMALL that would be a fun thing to show off. Maybe that's the end of this project for me. If I do this, this would be a super fun technical blog post. I could go into great detail about what's going on and show that I'm actually understanding the inner workings. ))</li>
+<li>Writing the loss function; $\theta \leftarrow \theta-\eta\times\frac{\partial L}{\partial\theta}$.
+<ul>
+<li>I got ahead of myself, gonna implement the MSE function for loss.</li>
+</ul>
+</li>
+<li><code>[(yout - ygt)**2 for ygt, yout in zip(ys, ypred)]</code>
+<ul>
+<li>What this is doing is pairing the y inputs and predictions</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3>Collecting All of the Parameters of the Neural Net</h3>
+<ul>
+<li>These nested for loops are helpful, but I can't parse them yet.
+<ul>
+<li>That's interesting that you can grab all of them so easily though. Six lines of code. That's cool.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3>Doing Gradient Descent Optimization Manually, Training the Network</h3>
+<ul>
+<li>Forward pass (calc loss), backward pass, update</li>
+<li>Wow, this is training a network.</li>
+</ul>
+</li>
+<li>
+<h3>Summary of What We Learned: How to Approach Modern Neural Networks</h3>
+<ul>
+<li>Instead of mean squared error, bigger nets use cross entropy loss</li>
+</ul>
+</li>
+<li>
+<h3>Walkthrough of the Full Code of MicroGrad on GitHub</h3>
+<ul>
+<li>Batching; I hadn't thought about these details.
+<ul>
+<li>Instead of taking the entire dataset and training on that, you take a sample of the training set and go: forward pass, backward prop, update.</li>
+<li>I like his demo that walks through, a bit more complicated and in depth. That'd be fun to walk through.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h3>Real Stuff: Diving into PyTorch, Finding Their Backward Pass for Tanh</h3>
+<ul>
+<li>(Empty)</li>
+</ul>
+</li>
+</ul>
+</section>
+</article>

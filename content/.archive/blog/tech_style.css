@@ -1,0 +1,88 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: #2c3e50;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+/* Links */
+a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Code Blocks */
+pre, code {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #ecf0f1;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+pre {
+    padding: 10px;
+    overflow-x: auto;
+}
+
+/* Blockquotes */
+blockquote {
+    border-left: 4px solid #bdc3c7;
+    padding-left: 16px;
+    color: #7f8c8d;
+    margin: 1.5em 0;
+    background-color: #ecf0f1;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+th, td {
+    border: 1px solid #bdc3c7;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #34495e;
+    color: white;
+}
+
+/* Lists */
+ul, ol {
+    margin: 1em 0;
+    padding-left: 40px;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 2em;
+    color: #7f8c8d;
+    font-size: 0.9em;
+}
