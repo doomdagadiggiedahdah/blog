@@ -138,7 +138,7 @@ mat@fantasyFlamingo:~/D/b/c/.archive$ ls
 comb_of_commands.png # beauty
 ```
 
-### cool, another milestone
+#### cool, another milestone
 - alright, got my first download. now let's get it all.
 
 
@@ -146,3 +146,27 @@ comb_of_commands.png # beauty
 curl -u $FTP_USERNAME:$FTP_PASSWORD -l ftp://$FTP_SERVER/blog/assets/ | xargs -I {} curl -u $FTP_USERNAME:$FTP_PASSWORD ftp://$FTP_SERVER/{} -o {}
 ```
 - let's push to github
+
+#### small break
+- 21:03
+- 22:23 - feeling sick. 
+- gonna make a video and call it a night
+
+## 2025-04-11
+
+<video width="640" height="360" controls>
+  <source src="/2025-04-10_22-38-37_copy.mp4." type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+- ![[Pasted image 20250411172127.png]]
+- ![[Pasted image 20250411172138.png]]
+
+- ![[Pasted image 20250411172156.png]]
+
+- got some extracts to show what was; inconsistent formatting, gross formatting, Claude generated front pages with no navigation or sense at all. an upgrade has been needed.
+
+### retrieving everything from the website
+- let's do the dumb thing that works, maybe that's just downloading manually for now since ftp wasn't as easy
+- I'm thinking that maybe the different types of files made the issue, maybe not. 
+- another thing that works, vim. ugh didn't work, pasting issues? ugh ok got it all.
+- now what? I've got 30 min until  I leave. push.
