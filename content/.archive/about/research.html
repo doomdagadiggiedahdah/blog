@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #f9fafb;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1.125rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .projects-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            transition: box-shadow 0.2s ease-in-out;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card-header {
+            padding: 1.5rem 1.5rem 1rem 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-type {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .card-year {
+            color: #666;
+            font-size: 0.875rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .card-description {
+            color: #666;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .card-content {
+            padding: 1rem 1.5rem 1.5rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .status-badge {
+            background-color: #e6f0ff;
+            color: #1a56db;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .award-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: #fef3c7;
+            color: #92400e;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .award-icon {
+            color: #92400e;
+            width: 1rem;
+            height: 1rem;
+        }
+
+        .link-container {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .learn-more {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .learn-more:hover {
+            color: #1d4ed8;
+        }
+
+        .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 0;
+            }
+            
+            body {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Research Portfolio</h1>
+            <p>A look at my first year of independent research in ML, AI, and ZK Proofs</p>
+        </header>
+
+        <section class="section" id="published-papers">
+            <h2 class="section-title">Published Papers</h2>
+            <div class="projects-list" id="published-papers-list"></div>
+        </section>
+
+        <section class="section" id="in-progress">
+            <h2 class="section-title">In-Progress Research</h2>
+            <div class="projects-list" id="in-progress-list"></div>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js"></script>
+    <script>
+        const projects = {
+            published: [
+                {
+                    title: "Meta-Models: An Architecture for Decoding LLM Behaviors Through Interpreted Embeddings and Natural Language",
+                    description: "Using one model to interpret the hidden activations of another model; does it work and how far does it generalize? We look at the efficacy and find that fine-tuning the meta-model allows it to generalize to interpreting lying behavior in an observed model. <i>Graciously supported by a grant from EA Funds</i>.",
+                    type: "Paper",
+                    icon: "file-text",
+                    year: "Oct 2024",
+                    status: "Published",
+                    link: "https://arxiv.org/abs/2410.02472",
+                    linkText: "Paper link"
+                },
+                {
+                    title: "GameBench: Evaluating Strategic Reasoning Abilities of LLM Agents",
+                    description: "Created a benchmark for measuring the strategic reasoning in LLM Agents when placed in multi-agent OOD gaming environments. Compared to humans, we're still safe.",
+                    type: "Paper",
+                    icon: "file-text",
+                    year: "June 2024",
+                    status: "Published in NeurIPS Workshop",
+                    link: "https://arxiv.org/abs/2406.06613",
+                    linkText: "Paper link",
+                    awardInfo: {
+                        text: "🏆 Acceted to NeurIPS LangGame Workshop",
+                        link: "https://neurips.cc/virtual/2024/106557",
+                        linkText: "Award details"
+                    }
+                }
+            ],
+            inProgress: [
+                {
+                    title: "Client-Side ZK Proofs",
+                    description: "Grant recipient from Uncloak Cryptography to do a survey on Client Side Proving technology in ZK Proofs.",
+                    type: "Development",
+                    icon: "code",
+                    year: "Nov 2024",
+                    status: "In Progress",
+                    link: "",
+                    linkText: "Links incoming!"
+                },
+                {
+                    title: "SimpleStories",
+                    description: "A reworking of the TinyStories dataset and model suite using today's better and cheaper models. To be used for further Mechanistic Interpretability research.",
+                    type: "Research",
+                    icon: "edit-3",
+                    year: "July 2024",
+                    status: "In Progress",
+                    link: "https://docs.google.com/document/d/1XRb-EDDw-h6c-L6pKltI9A8zJmufE71I2_4wx8d5rMg/edit?tab=t.0",
+                    linkText: "Community feedback link"
+                }
+            ]
+        };
+
+        function createProjectCard(project) {
+            const awardBadge = project.awardInfo 
+                ? `<div class="award-badge">
+                    <i data-feather="award" class="award-icon"></i>
+                    ${project.awardInfo.text}
+                   </div>`
+                : '';
+
+            const linkElements = project.awardInfo
+                ? `<div class="link-container">
+                    <a href="${project.link}" class="learn-more">
+                        ${project.linkText}
+                        <i data-feather="external-link" class="icon"></i>
+                    </a>
+                    <a href="${project.awardInfo.link}" class="learn-more">
+                        ${project.awardInfo.linkText}
+                        <i data-feather="external-link" class="icon"></i>
+                    </a>
+                   </div>`
+                : (project.link 
+                    ? `<a href="${project.link}" class="learn-more">
+                        ${project.linkText}
+                        <i data-feather="external-link" class="icon"></i>
+                       </a>`
+                    : `<span class="learn-more">
+                        ${project.linkText}
+                        <i data-feather="external-link" class="icon"></i>
+                       </span>`);
+
+            return `
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-meta">
+                            <div class="card-type">
+                                <i data-feather="${project.icon}"></i>
+                                <span>${project.type}</span>
+                            </div>
+                            <span class="card-year">${project.year}</span>
+                        </div>
+                        <h2 class="card-title">${project.title}</h2>
+                        ${awardBadge}
+                        <p class="card-description">${project.description}</p>
+                    </div>
+                    <div class="card-content">
+                        <span class="status-badge">${project.status}</span>
+                        ${linkElements}
+                    </div>
+                </div>
+            `;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Render published papers
+            const publishedList = document.getElementById('published-papers-list');
+            projects.published.forEach(project => {
+                publishedList.innerHTML += createProjectCard(project);
+            });
+
+            // Render in-progress papers
+            const inProgressList = document.getElementById('in-progress-list');
+            projects.inProgress.forEach(project => {
+                inProgressList.innerHTML += createProjectCard(project);
+            });
+
+            feather.replace();
+        });
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinatorics of Commands - Why I Like Vim</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            color: #333;
+        }
+        .math {
+            overflow-x: auto;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+            margin: 1rem 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 1rem 0;
+        }
+        .footnote {
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+            margin-top: 2rem;
+            padding-top: 1rem;
+        }
+        blockquote {
+            border-left: 4px solid #ddd;
+            margin: 0;
+            padding-left: 1rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Combinatorics of Commands - Why I Like Vim</h1>
+
+    <div style="background: #f0fff4; border-left: 4px solid #48bb78; padding: 1rem; margin: 1rem 0; border-radius: 4px;">
+        <strong>Epistemic Status:</strong> I followed a tiny rabbit hole for maybe 40 minutes to an hour and came out with this. I don't expect this to be super high quality by any means; it's going through the motions and possibly finding out something pretty interesting. I think this is fun. I'm excited to continue learning about these further topics and see what else is here. A green idea.
+    </div>
+
+    <ul>
+        <li>If you can prove different types of equality
+            <ul>
+                <li>imagine the combinatorial equation of vim combinations and;</li>
+                <li>the evergreen tendency to grow when you add a single additional equivalent to your domain.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <img src="https://enjoy.monster/assets/comb_of_commands.png" alt="Vim combinations diagram">
+
+    <h2>The Math of It</h2>
+
+    <div class="math">
+        Original = 5(10 + 10 + (70 * 4) + 100)<br>
+        = 5(10 + 10 + 280 + 100)<br>
+        = 5(400)<br>
+        = 2000<br>
+        <br>
+        Added Command = 6(10 + 10 + (70 * 4) + 100)<br>
+        = 6(10 + 10 + 280 + 100)<br>
+        = 6(400)<br>
+        = 2400
+    </div>
+
+    <p>Or, even smaller:</p>
+
+    <div class="math">
+        10 + 10 + (70 * 4) + 100 = a = 400<br>
+        <br>
+        Original = 5(a)<br>
+        = 2000<br>
+        <br>
+        Added Command = 6(a)<br>
+        = 2400
+    </div>
+
+    <p>(I like this left to right structure of assigning variables)</p>
+
+    <h2>Conclusion:</h2>
+    <ul>
+        <li>Scalable means real quick grow.
+            <ul>
+                <li>Adding one creates an outsized impact on available states.</li>
+                <li>A future question is "but are there optimal sets of available states to aim towards acquiring?" I'm sure there's some distribution of benefits to at least a non-negligible scale.</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Vim Grammar</h3>
+    <ol>
+        <li>"Let's recall our language: Verb, Modifier, Noun" - <a href="https://danielmiessler.com/blog/vim">source</a></li>
+        <li>An example from earlier:
+            <img src="https://enjoy.monster/assets/comb_of_commands.png" alt="Vim grammar example">
+        </li>
+        <li>[ ] Verb, Modifier, Noun == (TODO: uhh didn't translate yet)</li>
+        <li>"each new command gets access to ALL the existing ways of specifying targets." -Claude</li>
+    </ol>
+
+    <h3>P.S. A Practical Example, with Vim Fluency</h3>
+    <ul>
+        <li>You can add on an additional (and maybe the most important of all these) scalar to this equation:
+            <ul>
+                <li><em>Of the set of programs that I use, which have vim mode enabled?</em></li>
+                <li>Or, "how can I learn a single additional option {e.g. learning a new navigation trick} and have it scale to 3 programs automatically?"
+                    <ul>
+                        <li>Get more opportunities to practice in a time when you need to practice it the most (until it becomes fluent; to "grok vim<sup>1</sup>")</li>
+                    </ul>
+                </li>
+                <li>I use vim in Obsidian, Firefox (Vimium), and...vscode (I haven't given love to terminal 💙).</li>
+                <li>I learn a trick in one, I see if it applies to the other; boom 2-3x (often, i think)</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>And the bar is actually kind of low. If it becomes not fun, don't put too much pressure on it at first. Learn to navigate (G, gg, ctrl-D, ctrl-U, 33G (line 33) will get you pretty far), but then keep going. There's some cool stuff</p>
+
+    <div class="footnote">
+        <p><sup>1</sup> To "grok" an editor is to find yourself using its commands fluently ... as if they were your natural language. – Jim Dennis Commented Feb 12, 2010 at 4:08 - <a href="https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim/1220118#1220118">source</a></p>
+    </div>
+
+    <h3>P.S.S. ???</h3>
+    <p>Is this related to type theory? Something about being able to prove abstraction compatibility is what it's about, no?</p>
+
+    <h3>Claude's Response</h3>
+    <p>Yes, this touches on some interesting concepts in type theory! The Vim grammar system can be viewed through the lens of algebraic types and compositional semantics. Here's how:</p>
+
+    <ol>
+        <li>Type Safety & Composition:
+            <ul>
+                <li>Vim's grammar ensures "type-safe" operations - not every combination is valid</li>
+                <li>Commands (verbs) expect certain types of arguments (modifiers/nouns)</li>
+                <li>This is similar to function type signatures in programming languages</li>
+            </ul>
+        </li>
+        <li>Algebraic Structure:
+            <ul>
+                <li>The image shows a product type relationship (multiplication of possibilities)</li>
+                <li>Each command can be composed with valid modifiers/nouns</li>
+                <li>This forms a closed system where operations are well-defined</li>
+            </ul>
+        </li>
+        <li>Abstract Syntax:
+            <ul>
+                <li>The Verb-Modifier-Noun pattern is essentially a simple abstract syntax</li>
+                <li>It guarantees that valid commands will be semantically meaningful</li>
+                <li>Similar to how type systems ensure program correctness</li>
+            </ul>
+        </li>
+        <li>Proof Relevance:
+            <ul>
+                <li>The compatibility between commands and their targets could theoretically be proven</li>
+                <li>This would show that the grammar preserves semantic meaning</li>
+                <li>Similar to proofs of type soundness in programming languages</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>Fin</h2>
+    <p>I think this small dive shows there's a lot more to this</p>
+    <p>> "good abstractions give you combinatorial power." - Claude</p>
+</body>
+</html>
