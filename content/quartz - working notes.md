@@ -172,3 +172,48 @@ curl -u $FTP_USERNAME:$FTP_PASSWORD -l ftp://$FTP_SERVER/blog/assets/ | xargs -I
 - now what? I've got 30 min until  I leave. push.
 - this is janky. real janky. but I think I'm on to something. it may be pushing to porkbun. and I wonder if I'm able to take porkbun out of the situation here, I'm using my github to host the noisebridge AI setup; can I do this with another?
 	- Claude is saying yes, I'll try that out tomorrow.
+
+## 2025-04-12
+
+### there's probably a standard way for this
+- [Claude says...](https://claude.ai/share/e359827c-725e-4230-baa1-8eb9e691f0cb) use github actions to build it. cool.
+- ok, so I put the following deploy.yml file in `.github/workflows` and it...just starts working
+
+```
+name: Deploy Quartz site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npx quartz build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: public
+          clean: true
+```
+- neat. I've verified that there's a gh-pages branch now (this is cool, I wonder what else github actions can do)
+- awesome, damn. and I can verify that when I go to https://doomdagadiggiedahdah.github.io/blog the blog is up there.
+- what do we call this?
+- M I L E S T O N E B O I 
+- the next thing I want to check is if I push changes and the site gets updated automatically....
