@@ -170,3 +170,5 @@ curl -u $FTP_USERNAME:$FTP_PASSWORD -l ftp://$FTP_SERVER/blog/assets/ | xargs -I
 - I'm thinking that maybe the different types of files made the issue, maybe not. 
 - another thing that works, vim. ugh didn't work, pasting issues? ugh ok got it all.
 - now what? I've got 30 min until  I leave. push.
+- this is janky. real janky. but I think I'm on to something. it may be pushing to porkbun. and I wonder if I'm able to take porkbun out of the situation here, I'm using my github to host the noisebridge AI setup; can I do this with another?
+	- Claude is saying yes, I'll try that out tomorrow.
