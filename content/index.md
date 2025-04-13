@@ -3,60 +3,49 @@ title: welcome to enjoy.monster
 ---
 
 ```
-<wonder>
-  <ponder>
-    <explore>
-      <discover>
-        <marvel>
-          <dream>
-            <inspire>
+             ___
+        .-'"   "'-._
+       /             \
+      |               |
+       \  ,_    _,   /
+        \/  \__/  \/
+         \__/  \__/
+          /_    _\
+         // \  / \\
+        //   \/   \\
+       /   }    {   \
+      /   /      \   \
+     /   /        \   \
+    /   /          \   \
+   (   (            )   )
+    \   \          /   /
+     \   \        /   /
+      \   \      /   /
+       \   \    /   /
+        \   \  /   /
+         \   \/   /
+          \      /
+           \    /
+            \  /
+             \/
 
-       ,-.      ,-.      ,-.      ,-.
-      /   \    /   \    /   \    /   \
-     |     |  |     |  |     |  |     |
-      \   /    \   /    \   /    \   /
-       `-'      `-'      `-'      `-'
+       In the garden of the mind
+     Where ideas blossom and grow
+    Imagination's tendrils wind  
+       Weaving wonder's gentle glow
 
-In the tapestry of existence, we find
-Threads of joy and sorrow intertwined  
-  Each a brush stroke in the grand design
-    Painting a picture, yours and mine
+  Each petal a prismatic thought unfurled
+     Refracting light in myriad hues   
+  Fragrant fancies drift across the world
+     As inspiration's nectar imbues
 
-      .''.      .        *''*    :_\/_:     . 
-     :_\/_:   _\(/_  .:.*_\/_*   : /\ :  .'.:.'.
-     .'/\ : :"/()"\  ':'* /\ *  : '..'.  -=:o:=-
-    :'..'  :""/ \ \""  :""*".*'" '. '--.':_:/
-    '. ':  '/""*""\"" .""\"" ."\"\"\  '. ' _:""\.
-     ':'. ."\.'/"\."" /.""' ."' ' '": : :  "" :
-       '. :.  :  :  ' : :.' "" .'*"  '. '. ""  :
-        '*'.'.  :  ' .'  ""   .'""     '. '.:.'
+        The seeds of creativity 
+       Borne upon a wistful breeze
+        Find fertile soil and cavity
+       In which to sprout with ease
 
-    In moments of darkness, seek the light
-      A glimmer of hope, a star so bright
-    Guiding us onward through the night  
-      To a new dawn, a future in sight
-
-            ,-""-.
-           / .--. \
-          / /    \ \
-          | |    | |
-          | |.-""-.|
-         ///`.::::.`\
-        ||| ::/  \:: ;
-        ||; ::\__/:: ;
-         \\\ '::::' /
-     jgs  `=':-..-'`
-
-    Life's rich tapestry, woven with care
-      A masterpiece beyond compare   
-    Crafted by the hands of fate so fair
-      In each thread, beauty lies there
-
-            </inspire>
-          </dream>
-        </marvel>  
-      </discover>
-    </explore>
-  </ponder>
-</wonder>
+     Cultivate this plot with care  
+       And diligence, day by day
+     Until insight's blooms appear
+       Revealing wisdom's bouquet
 ```
