@@ -447,6 +447,22 @@ Error: API request failed with status 401
 - also send a link to the daily_poem.py on the index.md; update that in the daily_poem.py script
 - wow, putting this together has gotten me to put a lot of effort in. this is pretty cool.
 - ok, the github push works from vscode.
+- how check that crontab works oto?
+- ok, I'm thinking that I figured out the github codes.
+- when I go from the terminal thouhg, api key is acting up again lol.
+- maybe it's a fish thing. it's a environmental variable thing again.
+
+#### handling variables
+- dammit.
+- I've seen this with troubleshooting hotkeys before, (the ocr hotkey one)
+- ok, good to know. just need to make env files (I remember hearing one talk where someone had condemned using .env files (in part because you can forget). but then wha'ts the better alternative? or is it fine?) claude says it's fine. sound sgood.
+- ok cool. so I think this'll run tomorrow. if not, idk how to find the output.
+- ok, thanks to the crontab:
+```
+0 8 * * * cd /home/mat/Documents/blogg && ./daily_poem.py >> poem_cron.log 2>&1
+```
+- I should see it all in blogg/poem_cron.log
+- and with that, I'm going to bed.
 
 #### back to other things
 - I could probably make the chatbot that only talks in gen-z slang too.
