@@ -24,8 +24,6 @@ for env_path in env_paths:
 
 # Configuration - Try both keys
 API_KEY = os.environ.get("ANTHROPIC_API_KEY")
-print(API_KEY)
-
 BLOG_PATH = Path(__file__).parent
 INDEX_FILE = BLOG_PATH / "content/index.md"
 HISTORY_FILE = BLOG_PATH / "poem_history.md"
@@ -68,14 +66,14 @@ def call_claude_api():
     message = client.messages.create(
         model="claude-3-opus-20240229",
         max_tokens=4000,
-        temperature=0.7,
+        temperature=0.6,
         messages=[
             {
                 "role": "user",
                 "content": [
                     {
                         "type": "text",
-                        "text": f"{PROMPT_TEMPLATE}\n\nFor context, here are some recent poems I've created: {get_poem_history()}"
+                        "text": f"{PROMPT_TEMPLATE}"
                     }
                 ]
             }
