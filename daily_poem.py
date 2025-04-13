@@ -92,16 +92,24 @@ def update_blog_files(poem):
     """Update blog index and history files with the new poem"""
     today = datetime.now().strftime("%Y-%m-%d")
     
-    # Create front matter for the poem
-    formatted_poem = f"""---
+    # For index.md, use fixed front matter
+    index_content = """---
+title: welcome to enjoy.monster
+---
+
+""" + poem
+    
+    # Update index file
+    INDEX_FILE.write_text(index_content)
+    print(f"Updated {INDEX_FILE} with fixed front matter")
+    
+    # For history file, use date in front matter
+    history_entry = f"""---
 date: {today}
 ---
 
 {poem}
 """
-    
-    # Update index file
-    INDEX_FILE.write_text(formatted_poem)
     
     # Update history file with limited entries
     try:
@@ -109,12 +117,15 @@ date: {today}
     except FileNotFoundError:
         history = ""
     
-    # Add new poem to history and limit entries
-    updated_history = formatted_poem + "\n\n" + history
+    # Add new poem to history
+    updated_history = history_entry + "\n\n" + history
+    
+    # Keep only MAX_HISTORY entries
     history_entries = re.findall(r'---\ndate:.*?---\n\n.*?(?=\n\n---|\Z)', updated_history, re.DOTALL)
     limited_history = "\n\n".join(history_entries[:MAX_HISTORY])
     
     HISTORY_FILE.write_text(limited_history)
+    print(f"Updated {HISTORY_FILE} with new poem and limited to {MAX_HISTORY} entries")
 
 def push_to_github():
     """Commit changes and push to GitHub"""
