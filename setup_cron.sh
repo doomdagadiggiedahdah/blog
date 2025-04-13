@@ -1,5 +1,8 @@
 #!/bin/bash
 
+### You can do this yourself! Edit the following to your setup and it (should)
+#work for you too 
+
 # Configuration - Edit these variables to customize
 SCRIPT_DIR="/home/mat/Documents/blog"
 SCRIPT_NAME="daily_poem.py"
