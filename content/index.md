@@ -3,49 +3,99 @@ title: welcome to enjoy.monster
 ---
 
 ```
-             ___
-        .-'"   "'-._
-       /             \
-      |               |
-       \  ,_    _,   /
-        \/  \__/  \/
-         \__/  \__/
-          /_    _\
-         // \  / \\
-        //   \/   \\
-       /   }    {   \
-      /   /      \   \
-     /   /        \   \
-    /   /          \   \
-   (   (            )   )
-    \   \          /   /
-     \   \        /   /
-      \   \      /   /
-       \   \    /   /
-        \   \  /   /
-         \   \/   /
-          \      /
-           \    /
-            \  /
-             \/
+<imagine>
+  <create>
+    <inspire>
+      <dream>
+        <believe>
+          <achieve>
 
-       In the garden of the mind
-     Where ideas blossom and grow
-    Imagination's tendrils wind  
-       Weaving wonder's gentle glow
+            .-""-.
+           / .--. \
+          / /    \ \
+          | |    | |
+          | |.-""-.|
+         ///`.::::.`\
+        ||| ::/  \:: ;
+        ||; ::\__/:: ;
+         \\\ '::::' /
+     jgs  `=':-..-'`
 
-  Each petal a prismatic thought unfurled
-     Refracting light in myriad hues   
-  Fragrant fancies drift across the world
-     As inspiration's nectar imbues
+   In the tapestry of life, we weave
+     Our hopes, our dreams, our beliefs
+       With each thread, a story told
+         A masterpiece, bright and bold
 
-        The seeds of creativity 
-       Borne upon a wistful breeze
-        Find fertile soil and cavity
-       In which to sprout with ease
+              ___
+         .-'"   "'-._
+        /      .      \
+       |       |       |
+        \     _|_     /
+         \_,-'   `-,_/
+           '"'   '"'
+            |     |
+            |     |
+            |     |
+            |     |
+            |     |
+            |     |
+            |     |
+            |     |
+            '-----'
 
-     Cultivate this plot with care  
-       And diligence, day by day
-     Until insight's blooms appear
-       Revealing wisdom's bouquet
+    Imagine a world of endless possibility
+      Where creativity knows no bounds  
+    Let your mind soar, wild and free
+      As inspiration's spark surrounds
+
+                  .
+                 /:\
+                /;:.\
+               //;:. \
+              ///;:.. \
+             /////;:.. \
+            ///////;:.. \
+           ////////;:... \
+          ////////;;:.... \
+         //////;;//;:..... \
+        //////;;///;:...... \
+       //////;;/////;:...... \
+      //////;;//////;;:....... \
+     //////;;//////////;:...... \
+    //////;;////////////;:...... \
+   //////;//////////////;;:...... \
+  //////;///////////////;;;:...... \
+ //////;////////////////;;;;:...... \
+//////;///////////////////;;;:......|
+-------;////////////////////;;;;:....|
+       ;/////////////////////;;;;:...|
+       ;/////////////////////;;;;;:..|
+       ;///////////////////////;;;;:.|
+       ;///////////////////////;;;;;;|
+       ;///////////////////////;;;;;;|
+       ;///////////////////////;;;;;;|
+       ;///////////////////////;;;;;;|
+       ;///////////////////////;;;;;;|
+       ;///////////////////////;;;;;;|
+       ;///////////////////////;;;;;;|
+       ;///////////////////////;;;;;;|
+       ;///////////////////////;;;;;;|
+       ;///////////////////////;;;;;;|
+       ;///////////////////////;;;;;;|
+       ;///////////////////////;;;;;;|
+       ;///////////////////////;;;;;;|
+       ;///////////////////////;;;;;;|
+       ;///////////////////////;;;;;;|
+
+    Dream a dream of wonder and awe
+      A vision of beauty, forever more
+    In each brushstroke, a world to explore
+      As imagination opens every door
+
+          </achieve>
+        </believe>
+      </dream>  
+    </inspire>
+  </create>
+</imagine>
 ```
