@@ -441,6 +441,13 @@ Error: API request failed with status 401
 - idk how  Ifeel about advertising. but to beauty, and reason, I think more advertising could be made. I feel more justified in that.
 - neat. that feels like a resolution.
 
+- ok, so the last thing to check is the github push at the end. 
+	- ooooo and I need to be oh, this commit just needs to push the content/index.md file, nothing else.whew.
+- I need to make sure my github credentials work when the crontab runs.
+- also send a link to the daily_poem.py on the index.md; update that in the daily_poem.py script
+- wow, putting this together has gotten me to put a lot of effort in. this is pretty cool.
+- ok, the github push works from vscode.
+
 #### back to other things
 - I could probably make the chatbot that only talks in gen-z slang too.
 	- get a handful of gen-z scripts or whatever
