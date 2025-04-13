@@ -424,6 +424,22 @@ Error: API request failed with status 401
 #### HEY HEYY WE CALL THAT A MILESTONE.
 - let's test, and save the changes before we do another thing:
 - ok, I liked the little loop that I could 1. make a suggestion, 2. get update, 3. iterate again
+- sweet. the poem is generating. what next?
+- ok, extract, load and push to github 
+- oh, thisis a good time to mention a mini series I'm doing, [[master as the needle - blog series]]. 
+- I've been vibe coding, trading off between "human does this" and I'm letting this one drive, I'm gonna catch up later
+- and while doing so, learn how the system works. check out more at....A LINK I'LL PUT UP SOON TODO
+- I can actually put it up now. here we go! 
+- Claude found that '''For each folder in your Quartz site, you can add an "About section" page by creating an `index.md` file within that folder.''' cool, I do that now
+
+- and I think I stumbled upon a UI design choice. I don't want to change up the urls to this website. have it be easy. I'm goign to encourage finding your way thorugh this website like a graph. hit the MOC and you can navigate. I'll do that with tags. can I stack them? (I say tags because Quartz makes what would effectively act as an MOC anyway. ahh but can I edit that page for an intro? we'll see)
+
+- idea for poem generation; people can make suggestions and if yours is picked I notify you 
+	- I should be notified if person's is used (vs. random) (QA)
+- if they enter their email then I notify them
+- say thanks for the beauty, can link to them if they're interested (and if there's volume here then that is advertising)
+- idk how  Ifeel about advertising. but to beauty, and reason, I think more advertising could be made. I feel more justified in that.
+- neat. that feels like a resolution.
 
 #### back to other things
 - I could probably make the chatbot that only talks in gen-z slang too.
