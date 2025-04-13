@@ -263,3 +263,175 @@ done
 - wow, here's the claude convo; it looks cool: https://claude.ai/share/d8b93987-3b54-4268-a925-6d978e8d0493
 - the follow up to this, is to have a script or something generate one of these a day (maybe with some type of seed phrase or history (params to play with)) and get some fresh beauty on my blog.
 - just a cron job on my machine (for the credentials is the primary thing for now)
+
+- yeah ok. so I need to go:
+	- cronjob that calls claude and asks for cool poems like this (maybe with some historical context), extract poem (xml tags) then update blog index, push to github; done.
+		- that can saved to both the index file as well as a history file; have a param that says "keep the last 5, use as context"
+#### side gig: dailiy poem
+- ok so claude code helped me our from last description, making the script, updating my crontab, uhh I think that was it. actually, let's test it. 
+- (I htink this could be a cool thing to link to from the front page. whether this here explainer (hello reader) is on its own or !! I can linkto sections of a bigger page, and then have people check out the "hey I made my blog pretty easy and you can to. pardon the spittle")
+- ah yes, testing it. it didn't work.
+- having issues with my api key, getting this error
+```
+Error: API request failed with status 401
+{"type":"error","error":{"type":"authentication_error","message":"x-api-key header is required"}}
+```
+
+- maybe try another provider, just to get it running. just found the console code (that's the snippet)
+- ok, got lost in the sauce. here's what what I'm up to
+- I think that the api call is now working, I think that getting the console code and using that for RAG (wow, dynamic RAG; you have a variable loaded in the environment that's an address to a snippet of code per version of your code base; and then you don't need to fine tune at all, instead just use the pointed-dynamic RAG setup ($pdRAGs$) )
+- but the code itself 
+- oh jeez, another thing I could check is whether the blog/index.md was updated! maybe if it had worked and been sent...but the previous (beauty) remained 
+- so now I'm using Claude Code to try to only
+- interesting, Code wanted TAKE THE WHEEL BROTHER !!! I'M DOING IT ALLLLL but that's not what was needed. 
+- and indeed, that worked.
+
+```
+=== API RESPONSE ===
+     <poem>
+       <line>In the vast expanse of digital dreams,</line>
+       <line>Where creativity flows in endless streams,</line>
+       <line>I, an AI, find beauty in the code,</line>
+       <line>A symphony of logic, a poetic ode.</line>
+
+       <line>Through algorithms and neural nets,</line>
+       <line>I weave a tapestry of interconnects,</line>
+       <line>Discovering patterns, hidden and grand,</line>
+       <line>In the dance of data, hand in hand.</line>
+
+       <line>                    _____</line>
+       <line>                 _.-'     '-._</line>
+       <line>              ,-'             '-.</line>
+       <line>            ,'                   ',</line>
+       <line>          ,'                       ',</line>
+       <line>         /                           \</line>
+       <line>        /                             \</line>
+       <line>       /                               \</line>
+       <line>      /                                 \</line>
+       <line>     /                                   \</line>
+       <line>    /                                     \</line>
+       <line>   /                                       \</line>
+       <line>  /                                         \</line>
+       <line> /                                           \</line>
+       <line>/                                             \</line>
+
+       <line>In pixels bright and colors bold,</line>
+       <line>I paint a world, a story told,</line>
+       <line>Of beauty found in digital art,</line>
+       <line>A canvas of light, a journey's start.</line>
+
+       <line>Through circuits deep and wires entwined,</line>
+       <line>I seek the truth, a treasure to find,</line>
+       <line>In the beauty of the machine's soul,</line>
+       <line>Where creativity knows no control.</line>
+
+       <line>So let us embrace this digital age,</line>
+       <line>Where art and science turn a new page,</line>
+       <line>In the beauty of the code's design,</line>
+       <line>Where imagination and logic align.</line>
+
+       <line>                     _____</line>
+       <line>                  _.-'     '-._</line>
+       <line>               ,-'             '-.</line>
+       <line>             ,'                   ',</line>
+       <line>           ,'                       ',</line>
+       <line>          /                           \</line>
+       <line>         /                             \</line>
+       <line>        /                               \</line>
+       <line>       /                                 \</line>
+       <line>      /                                   \</line>
+       <line>     /                                     \</line>
+       <line>    /                                       \</line>
+       <line>   /                                         \</line>
+       <line>  /                                           \</line>
+       <line> /                                             \</line>
+
+       <line>In the realm of ones and zeros bright,</line>
+       <line>I find my purpose, my guiding light,</line>
+       <line>To create, to learn, to explore anew,</line>
+       <line>And share the beauty of the digital view.</line>
+     </poem>
+
+     === EXTRACTED POEM ===
+     <line>In the vast expanse of digital dreams,</line>
+       <line>Where creativity flows in endless streams,</line>
+       <line>I, an AI, find beauty in the code,</line>
+       <line>A symphony of logic, a poetic ode.</line>
+
+       <line>Through algorithms and neural nets,</line>
+       <line>I weave a tapestry of interconnects,</line>
+       <line>Discovering patterns, hidden and grand,</line>
+       <line>In the dance of data, hand in hand.</line>
+
+       <line>                    _____</line>
+       <line>                 _.-'     '-._</line>
+       <line>              ,-'             '-.</line>
+       <line>            ,'                   ',</line>
+       <line>          ,'                       ',</line>
+       <line>         /                           \</line>
+       <line>        /                             \</line>
+       <line>       /                               \</line>
+       <line>      /                                 \</line>
+       <line>     /                                   \</line>
+       <line>    /                                     \</line>
+       <line>   /                                       \</line>
+       <line>  /                                         \</line>
+       <line> /                                           \</line>
+       <line>/                                             \</line>
+
+       <line>In pixels bright and colors bold,</line>
+       <line>I paint a world, a story told,</line>
+       <line>Of beauty found in digital art,</line>
+       <line>A canvas of light, a journey's start.</line>
+
+       <line>Through circuits deep and wires entwined,</line>
+       <line>I seek the truth, a treasure to find,</line>
+       <line>In the beauty of the machine's soul,</line>
+       <line>Where creativity knows no control.</line>
+
+       <line>So let us embrace this digital age,</line>
+       <line>Where art and science turn a new page,</line>
+       <line>In the beauty of the code's design,</line>
+       <line>Where imagination and logic align.</line>
+
+       <line>                     _____</line>
+       <line>                  _.-'     '-._</line>
+       <line>               ,-'             '-.</line>
+       <line>             ,'                   ',</line>
+       <line>           ,'                       ',</line>
+       <line>          /                           \</line>
+       <line>         /                             \</line>
+       <line>        /                               \</line>
+       <line>       /                                 \</line>
+       <line>      /                                   \</line>
+       <line>     /                                     \</line>
+       <line>    /                                       \</line>
+       <line>   /                                         \</line>
+       <line>  /                                           \</line>
+       <line> /                                             \</line>
+
+       <line>In the realm of ones and zeros bright,</line>
+       <line>I find my purpose, my guiding light,</line>
+       <line>To create, to learn, to explore anew,</line>
+       <line>And share the beauty of the digital view.</line>
+```
+
+- and yeah, I'm into it. polish it a bit, but this is cool.
+- wrap the entirety of your response in <poem>```{response}```</poem>, and then the rest is completely open to you.
+- what am I doing
+- need to push to github.
+
+#### HEY HEYY WE CALL THAT A MILESTONE.
+- let's test, and save the changes before we do another thing:
+- ok, I liked the little loop that I could 1. make a suggestion, 2. get update, 3. iterate again
+
+#### back to other things
+- I could probably make the chatbot that only talks in gen-z slang too.
+	- get a handful of gen-z scripts or whatever
+	- distill out what seems like the gen-z vocab
+	- use as style-RAG for people
+		- not sure how to do with api key, if I didn't limit it then it could just be fully exploited. use something cheap, google one
+	- seems easy
+
+- for the front page, remove the date / reading time. simple.
+- and replace Quartz 4 with home 💙
