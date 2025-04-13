@@ -25,7 +25,7 @@ for env_path in env_paths:
 # Configuration - Try both keys
 API_KEY = os.environ.get("API_KEY") or os.environ.get("ANTHROPIC_API_KEY")
 BLOG_PATH = Path(__file__).parent
-INDEX_FILE = BLOG_PATH / "index.md"
+INDEX_FILE = BLOG_PATH / "content/index.md"
 HISTORY_FILE = BLOG_PATH / "poem_history.md"
 MAX_HISTORY = 5
 
@@ -142,6 +142,9 @@ def push_to_github():
         sys.exit(1)
 
 if __name__ == "__main__":
+
+    print(BLOG_PATH)
+
     # Get response and show it
     response = call_claude_api()
     print("\n=== API RESPONSE ===")

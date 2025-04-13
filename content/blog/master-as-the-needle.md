@@ -1,4 +1,8 @@
-# Master as the needle
+---
+title: master as the needle
+---
+
+# master as the needle
 - "Tell me and I'll forget, show me I'll remember, involve me and I'll understand."
 
 - I don't feel accomplished when I vibe code, "he who does the work gets the learning" and if I outsource all / most of it then I'm not actually becoming a more capable person when I have Claude write all my code, and I think that's not good.
@@ -21,13 +25,13 @@ the solution relies on the strength of the student to support the residual struc
 
 
 
-# The Master as the Needle
+# the master as the needle
 
 "Tell me and I'll forget, show me I'll remember, involve me and I'll understand."
 
 There's a critical line between technological capability and genuine understanding, can you truly comprehend something without wrestling with its complexity? The phrase 'those who do the work receive the learning' is more than a platitude; it's a commitment to technologically influenced thinking, where AI becomes a tool for insight, not a replacement for understanding.
 
-## The Core Learning Strategy
+## the core learning strategy
 
 My approach is simple, and deliberate: use LLMs to generate working code for projects, and then dive deep to understand why and how that code works under the hood. 
 
@@ -39,7 +43,7 @@ In the "Book of Five Rings", Miyamoto Musashi mentions the phrase "The master as
 
 In this way, I aim to have LLMs be my needle and have myself become the thread, learning to support the structures I'm working with.
 
-## What to Expect in This Series
+## what to expect in this series
 
 This blog series is an experiment in active, intentional learning. Each post will be a deep dive into a specific project:
 
@@ -51,6 +55,5 @@ This blog series is an experiment in active, intentional learning. Each post wil
 
 This series is a live experiment in understanding—deliberately messy, intentionally iterative, and perpetually evolving. More than a technical exploration, it's an invitation to develop a learning mindset that sees every technological encounter as a chance for deep insight. Not to continually be seeking perfection, but instead persistent curiosity.
 
-## The Experiments
+## the experiments
 
-[Links to individual project explorations will go here]
