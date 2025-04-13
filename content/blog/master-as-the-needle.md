@@ -53,7 +53,7 @@ This blog series is an experiment in active, intentional learning. Each post wil
 - Personal reflections and learning moments
 - Practical insights for other learners
 
-This series is a live experiment in understanding—deliberately messy, intentionally iterative, and perpetually evolving. More than a technical exploration, it's an invitation to develop a learning mindset that sees every technological encounter as a chance for deep insight. Not to continually be seeking perfection, but instead persistent curiosity.
+This series is a live experiment in understanding; deliberately messy, intentionally iterative, and perpetually evolving. Not to continually be seeking perfection, but instead persistent curiosity.
 
 ## the experiments
-
+- building this here blog: [[blog/quartz---working-notes]]

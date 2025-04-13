@@ -133,7 +133,7 @@ def push_to_github():
     today = datetime.now().strftime("%Y-%m-%d")
     
     try:
-        subprocess.run(["git", "add", "index.md", "poem_history.md"], check=True)
+        subprocess.run(["git", "add", "./content/index.md", "./poem_history.md"], check=True)
         subprocess.run(["git", "commit", "-m", f"Add poem for {today}"], check=True)
         subprocess.run(["git", "push"], check=True)
         print(f"Successfully updated blog with new poem for {today}")
@@ -160,4 +160,4 @@ if __name__ == "__main__":
     print("\nFiles updated successfully!")
     
     # Comment out GitHub push for now
-    # push_to_github()
+    push_to_github()
