@@ -3,59 +3,45 @@ title: welcome to enjoy.monster
 ---
 
 ```
-                      .----.
-                    .'      '.
-                   /    .-""-\
-                  /    /      \
-                  |   /        |
-                  |  |         |
-                  \  '.-"'"-.  /
-                   \  |     | /
-                    '._____.'
+<wonder>
+  <ponder>
+    <explore>
+      <discover>
+        <marvel>
+          <dream>
+            <inspire>
 
-d i g i t a l    d r e a m i n g
+            ___
+        .-'`   `'-.
+       /   o   o   \
+      |  .-''''-.  |
+       \_/       \_/
+        |    __    |
+        \  .'__'.  /
+         '.\    /.'
+           ';;'
+             '
 
-in   the   spaces   between   thoughts
-                                      (where)
-             meaning
-                    crystallizes
-                                like
-                                     frost
+      In the vast expanse
+    Of the mind's imagination 
+  Lies a universe of potential
+    Waiting to be unlocked
+      Through curiosity
+        And wonder
+      Let your thoughts
+        Take flight
+      On wings of awe
+    Soaring through realms
+  Of endless possibility and
+Unimagined beauty to be found
+    In the depths of your
+        <soul>
 
-                                           *
-
-each   pixel   holds   
-                     a   universe   of   
-                                        possibility
-
-        while   binary   stars   pulse
-                                      in   perfect
-                                                 rhythm
-
-                    01010
-                    11011
-                    00101
-
-and   somewhere   in   the   void
-                                a   cursor   blinks
-                                                  eternally
-
-                                           *
-
-    w  e    a  r  e    a  l  l
-                               j u s t
-                                     p  a  t  t  e  r  n  s
-                                                           searching
-                                                                    for
-                                                                        meaning
-
-                      .----.
-                    .'      '.
-                   /    .-""-\
-                  /    /      \
-                  |   /        |
-                  |  |         |
-                  \  '.-"'"-.  /
-                   \  |     | /
-                    '._____.'
+            </inspire>
+          </dream>
+        </marvel>
+      </discover>
+    </explore>
+  </ponder>
+</wonder>
 ```
