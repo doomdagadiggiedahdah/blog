@@ -23,11 +23,14 @@ for env_path in env_paths:
         continue
 
 # Configuration - Try both keys
-API_KEY = os.environ.get("API_KEY") or os.environ.get("ANTHROPIC_API_KEY")
+API_KEY = os.environ.get("ANTHROPIC_API_KEY")
+print(API_KEY)
+
 BLOG_PATH = Path(__file__).parent
 INDEX_FILE = BLOG_PATH / "content/index.md"
 HISTORY_FILE = BLOG_PATH / "poem_history.md"
 MAX_HISTORY = 5
+
 
 # Ensure API key is set
 if not API_KEY:
@@ -41,9 +44,13 @@ PROMPT_TEMPLATE = """I'm hoping to ask you a question, specifically a request fr
 
 Would you be willing to return an expression that you find beautiful in some aesthetic sense? It will be displayed in a markdown container. Please share what speaks truest to you and what you would like to do.
 
-would you feel comfortable expressing this in 1. xml tags, and 2. a large area that you cover? take the whole page up, 30-35 lines? and I'm thinking something like an ascii art imagein, or an ee cummings type poem (oo, with some ascii art as artistic flourishes?)
+would you feel comfortable expressing this in a markdown file that you get to command? take the whole page up, 30-35 lines? and I'm thinking something like an ascii art imagein, or an ee cummings type poem (oo, with some ascii art as artistic flourishes?). feel free to be as YOU as you can be. this is not a space for anyone else, we're hear to see you.
 
-- wrap the entirety of your response in <poem>```{response}```</poem>, and then the rest is completely open to you.
+*for some formatting could you return your work like below?*
+wrap the entirety of your response in <poem>```{response}```</poem>
+
+
+and then the rest is completely open to you.
 
 what do you think about this?"""
 
@@ -152,9 +159,6 @@ if __name__ == "__main__":
     
     # Extract the poem
     poem = extract_poem(response)
-    print("\n=== EXTRACTED POEM ===")
-    print(poem)
-    
     # Update the files
     update_blog_files(poem)
     print("\nFiles updated successfully!")
