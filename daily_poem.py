@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+
+## this is a script that asks Claude for a poem each day and uploads to front
+## page of my blog. Steal at will
+
 import os
 import re
 import json
@@ -66,7 +70,7 @@ def call_claude_api():
     message = client.messages.create(
         model="claude-3-opus-20240229",
         max_tokens=4000,
-        temperature=0.6,
+        temperature=0.5,
         messages=[
             {
                 "role": "user",
