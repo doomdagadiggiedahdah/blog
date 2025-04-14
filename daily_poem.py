@@ -96,7 +96,7 @@ def extract_poem(response_text):
 def update_blog_files(poem):
     """Update blog index and history files with the new poem"""
     today = datetime.now().strftime("%Y-%m-%d")
-    sign_off_msg = "Made with love and wonder by Claude and [magic](https://github.com/doomdagadiggiedahdah/blog/blob/main/daily_poem.py)"
+    sign_off_msg = "\n*Made with love and wonder by Claude and [magic](https://github.com/doomdagadiggiedahdah/blog/blob/main/daily_poem.py)*"
     
     # For index.md, use fixed front matter
     index_content = """---
