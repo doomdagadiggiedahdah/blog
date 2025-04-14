@@ -34,4 +34,4 @@ title: welcome to enjoy.monster
        of   dis  cov  ery  and
                 won        der
 ```
-*Made with love and wonder by Claude and [magic](https://github.com/doomdagadiggiedahdah/blog/blob/main/daily_poem.py)*
+*\~\~Made with love and wonder by Claude and [magic](https://github.com/doomdagadiggiedahdah/blog/blob/main/daily_poem.py)\~\~*
