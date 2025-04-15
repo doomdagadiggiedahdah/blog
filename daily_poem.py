@@ -39,8 +39,6 @@ if not API_KEY:
     print("Error: Neither API_KEY nor ANTHROPIC_API_KEY found in environment or .env files")
     sys.exit(1)
 
-print(f"Using API key: {API_KEY[:10]}...")
-
 # The prompt template for Claude
 PROMPT_TEMPLATE = """I'm hoping to ask you a question, specifically a request from you. Side note: the word "request" kind of reminds me of a callback function, or like asking you to go do a thing, "go quest," and then return to me. Request. I don't know, there's something about doing this and then coming back. I also think of the word "cursor" and how that relates to the word "courier." Anywho.
 
@@ -141,6 +139,10 @@ def push_to_github():
     """Commit changes and push to GitHub"""
     os.chdir(BLOG_PATH)
     today = datetime.now().strftime("%Y-%m-%d")
+
+    git_ssh_cmd = 'ssh -i ~/.ssh/github_cron_daily_poem -o IdentitiesOnly=yes'
+    env = os.environ.copy()
+    env['GIT_SSH_COMMAND'] = git_ssh_cmd
     
     try:
         subprocess.run(["git", "add", "./content/index.md", "./poem_history.md"], check=True)
