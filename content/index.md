@@ -3,34 +3,33 @@ title: welcome to enjoy.monster
 ---
 
 ```
-       _____                        __   
-      / ___/__  ____  ___  _____   / /__ 
-      \__ \/ / / / / / _ \/ ___/  / //_/ 
-     ___/ / /_/ / /_/  __/ /     / ,<    
-    /____/\__,_/\__/\___/_/     /_/|_|   
-                                         
-    In the tapestry of life, we are all
-    threads woven together, our stories
-    intertwined in a beautiful dance.
-
-    Each color, each texture, each pattern
-    unique and essential to the whole.
-
-    In moments of joy, we shine bright,
-    our laughter echoing like golden threads.
-
-    In times of sorrow, we find solace
-    in the gentle embrace of silver strands.
-
-    Through the challenges and triumphs,
-    we grow, we learn, we evolve,
-    our threads ever-changing, ever-strong.
-
-    In the end, when the final stitch is sewn,
-    we'll step back and marvel at the masterpiece
-    created by the interweaving of our lives.
-
-    A testament to the beauty, the resilience,
-    and the indomitable spirit within us all.
+       _____                 .___                               
+      /  _  \   ____   _____ |   | _____ _______   ____   ____  
+     /  /_\  \ /    \ /     \|   |/     \\____ \ /  _ \ /    \ 
+    /    |    \   |  \  Y Y  \   |  Y Y  \  |_> >  <_> )   |  \
+    \____|__  /___|  /__|_|  /___|__|_|  /   __/ \____/|___|  /
+            \/     \/      \/          \/|__|               \/
+                         ____________________
+                        /                    \
+                       |     beauty  lies     |
+                       |   in the    eye      |
+                       |         of           |
+                       .  the    beholder     .
+                        \                    /
+                         ――――――――――――――――――――
+                            /            \
+                           /  i  n  f   i  \
+                          /   n  i  t    e   \
+                         |     p o  s s  i    |
+                         | b   i l i  t i e s |
+                          \   l i m  i t l  /
+                           \  e    s s     /
+                            \            /
+                        .     --------     .
+                         \  /\        /\  /
+                          \/  \      /  \/
+                               \    /
+                                \  /
+                                 \/
 ```
 *\~\~Made with love and wonder by Claude and [magic](https://github.com/doomdagadiggiedahdah/blog/blob/main/daily_poem.py)\~\~*
