@@ -1,5 +1,5 @@
 ---
-title: Quick Thoughts on ZK Proof Foundations
+title: quick thoughts on zk proof foundations
 ---
 
 <center> ~~ A friendly exploration of zero-knowledge proof basics through dialogue ~~ </center>
