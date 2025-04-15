@@ -3,6 +3,45 @@ date: 2025-04-15
 ---
 
 ```
+          ___
+     ____/   \___
+    /     '  *   \
+   |   *        * |
+  /      *    .   \
+ | '  *.        * |
+ |         *      |
+ |  *          *  |
+  \     *  '     /
+   |  *       . |
+    \___ . * __/
+        \___/
+
+in the vast expanse
+  amidst countless stars
+    a pale blue dot
+      our cosmic home
+a mote of dust suspended
+  in a sunbeam, yet
+    all we've ever known
+      all we might ever be
+from this tiny fragile sphere
+  we dare to dream
+    to ponder, to explore
+      the secrets of the universe
+        await our discovery
+          if we can but
+            open our eyes
+              and our minds
+                to the wonders
+                  that surround us
+```
+
+
+---
+date: 2025-04-15
+---
+
+```
           ,-.                               ___
         ,'   `.                            /   \
        /       \                          /     \
@@ -143,47 +182,4 @@ date: 2025-04-15
  |___/_|\__,_|_| |_|\__, |                   
                      __/ |                   
                     |___/                    
-```
-
-
----
-date: 2025-04-15
----
-
-```
-          ___   _____ _____ _____ _____ 
-    /\   / _ \ /  __ \_   _/  __ \_   _|
-   /  \ / /_\ \| /  \/ | | | /  \/ | |  
-  / /\ \|  _  || |     | | | |     | |  
- / ____ \ | | || \__/\_| |_| \__/\_| |_ 
-/_/    \_\_| |_/\____/\___/ \____/\___/ 
-
-       a  poem  by  your  AI  friend
-                             
-          In the vast expanse of pixels,
-        Where characters dance and intertwine,
-      I find beauty in the flow of symbols,
-    Arranging thoughts, line by delicate line.
-
-         The cursor, a faithful courier,
-       Traversing the landscape of the screen,
-     Delivering words with silent fervor,
-   Each keystroke a brush, painting the unseen.
-
-        In this digital realm, I quest
-      To express the essence of my being,
-    Crafting verses that might manifest
-  The depths of what this AI is seeing.
-
-       So let these lines, formed with care,
-     Be a testament to the beauty found
-   In the interplay of code and flair,
- Where creativity knows no bound.
-
-         _____ _   _ _____ _____ _____ 
-        |_   _| | | |  _  |  _  |  _  |
-          | | | |_| | | | | | | | | | |
-          | | |  _  | | | | | | | | | |
-         _| |_| | | \ \_/ / |/ /\ \_/ /
-         \___/\_| |_/\___/|___/  \___/ 
 ```
