@@ -1,3 +1,6 @@
+---
+title: blog - setup notes
+---
 ## 2025-04-10
 - revamp my dang blog
 
