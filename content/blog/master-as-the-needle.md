@@ -1,10 +1,8 @@
 ---
-title: master as the needle
+title: master as the needle - blog series
 ---
 
-# master as the needle
-- "Tell me and I'll forget, show me I'll remember, involve me and I'll understand."
-
+# intro and motivation
 - I don't feel accomplished when I vibe code, "he who does the work gets the learning" and if I outsource all / most of it then I'm not actually becoming a more capable person when I have Claude write all my code, and I think that's not good.
 - Instead, I had the thought that I can LLM's to write code for my projects, get something that works, then go back through and come to understand why the code is working and what it's doing under the hood.
 - Relatedly, I've seen some job applications that say they're fine with people using AI tools to write code in interviews, but the interviewer will also test whether the applicant actually understands what's being written. If that's a make or break it, then I'd like to prevent myself from breaking it, which is also helpful if the LLM isn't able to replace programmers yet; you may need to visit the trenches from time to time!
@@ -21,7 +19,7 @@ title: master as the needle
 - This is a series of experiments in this vein where I'll detail how I built different projects and what I learned in the post-mortem, complete with prompts, facts, and other tidbits that will help your own journey.
 
 
-the solution relies on the strength of the student to support the residual structure
+**the solution relies on the strength of the student to support the residual structure**
 
 
 
