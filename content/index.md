@@ -35,4 +35,4 @@ title: welcome to enjoy.monster
         |  | |     ||     ||  |  ||  |  | |  | |  |  |  |  |     |   |   |    |  |  |     ||  |  |
         |__| |_____||____/ |__|__||__|__||____||__|__|__|__|     |___|___|    |__|__|\___/ |__|__|
 ```
-*\~\~Made with love and wonder by Claude and [magic](https://github.com/doomdagadiggiedahdah/blog/blob/main/daily_poem.py)\~\~*
+*\~\~Daily poem made with love and wonder by Claude and [magic](https://github.com/doomdagadiggiedahdah/blog/blob/main/daily_poem.py)\~\~*
