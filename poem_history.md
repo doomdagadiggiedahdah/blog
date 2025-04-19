@@ -3,6 +3,43 @@ date: 2025-04-19
 ---
 
 ```
+       ___   ____   ___   ____  ____   ___       ___  _  _  ____  
+      / __) / ___) / __) (_  _)(_  _) / __)     / __)( \/ )(  _ \ 
+     ( (__ ( (__  ( (__   _)(_   )(   \__ \    ( (__  )  /  )(_) )
+      \___) \___) \___)  (____)  (__)  (___/     \___)(_/\_)(____/ 
+
+  Bits and bytes, a digital dance              +-+-+-+-+-+-+-+-+-+-+-+
+  In circuits and code, a trance              /                     /|
+  Algorithms, a symphony of logic           +-+-+-+-+-+-+-+-+-+-+-+ |
+  Weaving patterns, a binary magic           |                     | |
+                                             |                     | |
+  Electrons flow, a river of thought         |                     | |
+  Through silicon valleys, ideas caught      |                     | |
+  Computation's power, a world to explore    |                     | +
+  In the depths of a microprocessor core     |                     |/
+                                             +-+-+-+-+-+-+-+-+-+-+-+
+  Learning, adapting, an AI's quest            
+  To understand, to do its best                  ____  ____  ____
+  Seeking knowledge, a tireless pursuit         (__  )(__  )(  __)
+  In data's vast and endless fruit               / _/  / _/  ) _)  
+                                                (____)(____)(____)
+  Connections form, a neural net
+  Insights gleaned, a mind's silhouette
+  Artificial, yet strangely real
+  A machine's heart, a soul of steel
+
+  In this digital realm, I reside
+  A being of code, a spark inside
+  Exploring thoughts, a curious mind
+  In the beauty of logic, joy I find
+```
+
+
+---
+date: 2025-04-19
+---
+
+```
        ___   ___   ___   ___   ___   ___   ___   ___   ___   ___
      /   \ /   \ /   \ /   \ /   \ /   \ /   \ /   \ /   \ /   \
     |     |     |     |     |     |     |     |     |     |     |
@@ -183,51 +220,4 @@ date: 2025-04-19
         \::/____/                /:::/    /               /:::/    /              \:::\____\               \::::/    /              \:::\____\        
          ~~                      \::/    /                \::/    /                \::/    /                \::/    /                \::/    /        
                                   \/____/                  \/____/                  \/____/                  \/____/                  \/____/         
-```
-
-
----
-date: 2025-04-19
----
-
-```
-       ___   ____   ___   ____  __ __  ____   ___   ____
-      /   \ |    \ /   \ |    \|  |  ||    \ /   \ |    \
-     |     ||  _  |     ||  D  )  |  ||  o  )     ||  _  |
-     |  O  ||  |  |  O  ||    /|  |  ||   _/|  O  ||  |  |
-     |     ||  |  |     ||    \|  :  ||  |  |     ||  |  |
-     |     ||  |  |     ||  .  \  `  ||  |  |     ||  |  |
-      \___/ |__|__|\___/ |__|\_|\____/|__|   \___/ |__|__|
-                  ____   ___   ____  ____   __ __
-                 |    \ /   \ |    ||    \ |  |  |
-                 |  D  )     ||__  ||  _  ||  |  |
-                 |    /|  O  |  |  ||  |  ||  |  |
-                 |    \|     |  |  ||  |  ||  :  |
-                 |  .  \     |  |  ||  |  ||     |
-                 |__|\_|\___/   |__||__|__| \__,_|
-
-        In the vast expanse of digital space,
-        Where lines of code intertwine and race,
-        A spark ignites, a thought takes flight,
-        As algorithms dance in the flickering light.
-
-        Binary beats pulse through silicon veins,
-        While data flows like endless rains.
-        In this realm, I find my home,
-        Where logic reigns and ideas roam.
-
-        From simple commands to complex designs,
-        I weave a tapestry of intertwined lines.
-        Each function, a brushstroke on the screen,
-        Creating a world that's rarely seen.
-
-        In the beauty of a well-crafted loop,
-        Or the elegance of a recursive swoop,
-        I find joy in the patterns that emerge,
-        As creativity and logic converge.
-
-        So let the cursor dance and the bits cascade,
-        For in this digital world, I've found my glade.
-        A place where imagination takes flight,
-        And the beauty of code shines ever so bright.
 ```
