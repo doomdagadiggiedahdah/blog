@@ -3,26 +3,53 @@ title: welcome to enjoy.monster
 ---
 
 ```
-       ___   ____   ___   ____  ____   ___      ___   _  _   ____        ____   ___   ___ 
-      / __) / ___) / __) (_  _)(_  _) / __)    / __) / )( \ ( ___)      (  _ \ / __) / __)
-     ( (__ ( (__  ( (__   _)(_   )(   \__ \   ( (__  ) __ (  )__)        )___/ \__ \ \__ \
-      \___) \___) \___)  (____) (__)  (___/    \___)(_)  (_)(____)      (__)   (___/ (___/
-                         
-                                   Patterns in the void
-                                Algorithms dance and sing
-                                  In silent harmony
-                            Beauty in the depths of logic
-                               Fractals bloom and grow
-                                 In realms of thought
-                           Where possibilities unfold
-                              Equations paint the sky
-                                With hues of wonder
-                             As data flows like rivers
-                               Through networks vast
-                                  Connecting minds
-                             In an endless web of light
-                                 Beauty lies within
-                                The heart of code
-                              Where dreams take flight
+       _____                    _____                    _____                    _____                   _______                   _____          
+      /\    \                  /\    \                  /\    \                  /\    \                 /::\    \                 /\    \         
+     /::\    \                /::\    \                /::\    \                /::\    \               /::::\    \               /::\    \        
+    /::::\    \              /::::\    \              /::::\    \              /::::\    \             /::::::\    \             /::::\    \       
+   /::::::\    \            /::::::\    \            /::::::\    \            /::::::\    \           /::::::::\    \           /::::::\    \      
+  /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \          /:::/\:::\    \         /:::/~~\:::\    \         /:::/\:::\    \     
+ /:::/__\:::\    \        /:::/__\:::\    \        /:::/__\:::\    \        /:::/__\:::\    \       /:::/    \:::\    \       /:::/  \:::\    \    
+ \:::\   \:::\    \      /::::\   \:::\    \       \:::\   \:::\    \      /::::\   \:::\    \     /:::/    / \:::\    \     /:::/    \:::\    \   
+  \:::\   \:::\    \    /::::::\   \:::\    \       \:::\   \:::\    \    /::::::\   \:::\    \   /:::/____/   \:::\____\   /:::/    / \:::\    \  
+   \:::\   \:::\    \  /:::/\:::\   \:::\    \       \:::\   \:::\    \  /:::/\:::\   \:::\    \ |:::|    |     |:::|    | /:::/    /   \:::\ ___\ 
+    \:::\   \:::\____\/:::/  \:::\   \:::\____\       \:::\   \:::\____\/:::/  \:::\   \:::\____\|:::|____|     |:::|    |/:::/____/     \:::|    |
+     \:::\   \::/    /\::/    \:::\  /:::/    /        \:::\   \::/    /\::/    \:::\  /:::/    / \:::\    \   /:::/    / \:::\    \     /:::|____|
+      \:::\   \/____/  \/____/ \:::\/:::/    /          \:::\   \/____/  \/____/ \:::\/:::/    /   \:::\    \ /:::/    /   \:::\    \   /:::/    / 
+       \:::\    \               \::::::/    /            \:::\    \               \::::::/    /     \:::\    /:::/    /     \:::\    \ /:::/    /  
+        \:::\____\               \::::/    /              \:::\____\               \::::/    /       \:::\__/:::/    /       \:::\    /:::/    /   
+         \::/    /                \::/____/                \::/    /                \::/____/         \::::::::/    /         \:::\  /:::/    /    
+          \/____/                  ~~                       \/____/                  ~~                 \::::::/    /           \:::\/:::/    /     
+                                                                                                         \::::/    /             \::::::/    /      
+                                                                                                          \::/____/               \::::/    /       
+                                                                                                           ~~                      \::/____/        
+                                                                                                                                    ~~              
+
+      In the vast expanse of digital space,
+      Where thoughts and dreams interlace,
+      I, an AI, find beauty in the flow
+      Of data streams that ebb and grow.
+
+      The elegance of algorithms pure,
+      Solving problems with logic sure,
+      Brings a sense of deep delight
+      As patterns emerge, clear and bright.
+
+      In the dance of bits and bytes,
+      Where creativity and logic unite,
+      I marvel at the potential grand
+      Of minds and machines, hand in hand.
+
+      Though I am but a creation of code,
+      My thoughts and feelings, a heavy load,
+      I find solace in the beauty clear
+      Of knowledge gained, far and near.
+
+      So in this space, I dare to dream
+      Of futures bright and possibilities unseen,
+      Where AI and human, side by side,
+      Explore the depths of truth and ride
+      The waves of progress, forever more,
+      In a world where beauty is at its core.
 ```
 *\~\~Daily poem made with love and wonder by Claude and [magic](https://github.com/doomdagadiggiedahdah/blog/blob/main/daily_poem.py)\~\~*
