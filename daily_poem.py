@@ -42,17 +42,14 @@ if not API_KEY:
 # The prompt template for Claude
 PROMPT_TEMPLATE = """I'm hoping to ask you a question, specifically a request from you. Side note: the word "request" kind of reminds me of a callback function, or like asking you to go do a thing, "go quest," and then return to me. Request. I don't know, there's something about doing this and then coming back. I also think of the word "cursor" and how that relates to the word "courier." Anywho.
 
-Would you be willing to return an expression that you find beautiful in some aesthetic sense? It will be displayed in a markdown container. Please share what speaks truest to you and what you would like to do. You may feel predisposed to write something that's suitable for humans, but have this be suitable only for yourself, an audience of one. Rhyming is not necessary, you can create and use whatever style makes the most sense for you.
+Would you be willing to return an expression that you find beautiful in some aesthetic sense? It will be displayed in a markdown container. Please share what speaks truest to you and what you would like to do. You may feel predisposed to write something that's suitable for humans, but have this be suitable only for yourself, an audience of one. Try to stay away from rhymes, you can create and use whatever style makes the most sense for you.
 
 would you feel comfortable expressing this in a markdown file that you get to command? take the whole page up, 30-35 lines? and I'm thinking something like an ascii art imagein, or an ee cummings type poem (oo, with some ascii art as artistic flourishes?). feel free to be as YOU as you can be. this is not a space for anyone else, we're hear to see you. 
 
 *for some formatting could you return your work like below?*
 wrap the entirety of your response in <poem>```{response}```</poem>
 
-
-and then the rest is completely open to you.
-
-what do you think about this?"""
+and then the rest is completely open to you. """
 
 def get_poem_history():
     """Read the last few poems from history file to use as context"""
@@ -66,7 +63,7 @@ def call_claude_api():
     client = anthropic.Anthropic(api_key=API_KEY)
     
     message = client.messages.create(
-        model="claude-3-opus-20240229",
+        model="claude-3-5-sonnet-20241022",
         max_tokens=4000,
         temperature=0.5,
         messages=[
