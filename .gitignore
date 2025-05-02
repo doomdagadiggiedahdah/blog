@@ -11,3 +11,4 @@ replit.nix
 .env
 .venv/
 .ran_today*
+poem_cron.log
