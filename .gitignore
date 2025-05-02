@@ -10,3 +10,4 @@ private/
 replit.nix
 .env
 .venv/
+.ran_today*
