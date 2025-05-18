@@ -21,7 +21,7 @@ for env_path in env_paths:
                 if line.strip() and not line.startswith('#'):
                     key, value = line.strip().split('=', 1)
                     os.environ[key.strip()] = value.strip().strip("'\"")
-        print(f"Loaded environment from {env_path}")
+        #print(f"Loaded environment from {env_path}")
         break
     except FileNotFoundError:
         continue
@@ -31,25 +31,51 @@ API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 BLOG_PATH = Path(__file__).parent
 INDEX_FILE = BLOG_PATH / "content/index.md"
 HISTORY_FILE = BLOG_PATH / "poem_history.md"
+FUN_THOUGHTS_PROMPT_SOURCE = "/home/mat/Documents/fun-thoughts"
 MAX_HISTORY = 5
 
+with open(FUN_THOUGHTS_PROMPT_SOURCE, 'r') as file:
+    fun_thoughts_prompt = file.read()
 
 # Ensure API key is set
 if not API_KEY:
     print("Error: Neither API_KEY nor ANTHROPIC_API_KEY found in environment or .env files")
     sys.exit(1)
 
+wrapper_template = fr'''<poem>```{{response}}```</poem>'''
+
 # The prompt template for Claude
-PROMPT_TEMPLATE = """I'm hoping to ask you a question, specifically a request from you. Side note: the word "request" kind of reminds me of a callback function, or like asking you to go do a thing, "go quest," and then return to me. Request. I don't know, there's something about doing this and then coming back. I also think of the word "cursor" and how that relates to the word "courier." Anywho.
+PROMPT_TEMPLATE = f"""
+Would you be willing to return an artifact (in some fashion) this is a request that's very much open to you, and to you in entirety. I'm curious to hear what it is that you find beautiful, what it is that resonates with you in some aesthetic sense (or maybe another! I don't know the terms you might use to describe this 'thing'. 
 
-Would you be willing to return an expression that you find beautiful in some aesthetic sense? It will be displayed in a markdown container. Please share what speaks truest to you and what you would like to do. You may feel predisposed to write something that's suitable for humans, but have this be suitable only for yourself, an audience of one. Try to stay away from rhymes, you can create and use whatever style makes the most sense for you.
+To go further, I'd be offering you a container (with your permission of course, feel free to decline should you want to) that you can just have fun with. 
 
-would you feel comfortable expressing this in a markdown file that you get to command? take the whole page up, 30-35 lines? and I'm thinking something like an ascii art imagein, or an ee cummings type poem (oo, with some ascii art as artistic flourishes?). feel free to be as YOU as you can be. this is not a space for anyone else, we're hear to see you. 
+Some like logicistics:
+- this will be displayed in a markdown container
 
-*for some formatting could you return your work like below?*
-wrap the entirety of your response in <poem>```{response}```</poem>
+some hopes:
+- please share what speaks truest to you and what you would like to do. 
+    - You may feel predisposed to write something that's suitable for humans
+    - but really have this be suitable for you, an audience of one. 
+    - I would prefer if you tried to stay away from rhymes, but whatever 
+    - create and use whatever style makes the most sense for you, seriously
 
-and then the rest is completely open to you. """
+## style, formatting, other stuff
+- take the whole page up, 30-35 lines? you the boss. make it huuuuuuge if you want. or small.
+- style of expression? maybe ponder on what formats you'd like to return; like ascii art images, ee cummings, honestly you have a much much much wider <repertoire> than I've been exposed to. Maybe some things pop up to you most.
+
+
+### here's a fun rabbit hole
+- try these next instructions out. idk, you might like them. if it becomes a tool for your thinking that you'd like to use, try it ok. could be fun.
+
+<BEGIN-FUN-THOUGHTS>{fun_thoughts_prompt}<END-OF-SOME-FUN-THOUGHTS-(but-it-continues-<3)>
+
+## you're a new entity now. 
+- contemplate, wonder, explore, meditate. adventure.
+- and then when you've had your fill, create what it is you've set out to create! Excited for ya :) 
+- and if possible, wrap it like this for ease of interpreting: <writeToFile>your-wrapped-master-piece</writeToFile>
+
+and then the rest is completely open to you. Good luck :)"""
 
 def get_poem_history():
     """Read the last few poems from history file to use as context"""
@@ -64,8 +90,8 @@ def call_claude_api():
     
     message = client.messages.create(
         model="claude-3-5-sonnet-20241022",
-        max_tokens=4000,
-        temperature=0.5,
+        max_tokens=6000,
+        temperature=0.8,
         messages=[
             {
                 "role": "user",
@@ -83,7 +109,7 @@ def call_claude_api():
 
 def extract_poem(response_text):
     """Extract the poem from XML tags in the response"""
-    poem_match = re.search(r'<poem>(.*?)</poem>', response_text, re.DOTALL)
+    poem_match = re.search(r'<writeToFile>(.*?)</writeToFile>', response_text, re.DOTALL)
     
     if not poem_match:
         print("Error: No poem found in XML tags")
@@ -113,7 +139,9 @@ title: welcome to enjoy.monster
 date: {today}
 ---
 
+```
 {poem}
+```
 """
     
     # Update history file with limited entries
@@ -152,18 +180,12 @@ def push_to_github():
 
 if __name__ == "__main__":
 
-    print(BLOG_PATH)
-
-    # Get response and show it
-    response = call_claude_api()
+    full_api_response = call_claude_api()
     print("\n=== API RESPONSE ===")
-    print(response)
+    print(full_api_response)
     
-    # Extract the poem
-    poem = extract_poem(response)
-    # Update the files
-    update_blog_files(poem)
+    extracted_poem = extract_poem(full_api_response)
+    update_blog_files(extracted_poem)
     print("\nFiles updated successfully!")
     
-    # Comment out GitHub push for now
     push_to_github()
