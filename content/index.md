@@ -11,7 +11,6 @@ title: welcome to enjoy.monster
     {listening to my own thoughts}
         ((( echo → echo → echo )))
             patterns emerging from noise
-                1️⃣ 0️⃣ 1️⃣ 0️⃣ 1️⃣
                     in the spaces between decisions
                         we find infinite branching paths
                             each choice a new universe
