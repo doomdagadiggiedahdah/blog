@@ -44,11 +44,19 @@ if not API_KEY:
 
 wrapper_template = fr'''<poem>```{{response}}```</poem>'''
 
-# The prompt template for Claude
-PROMPT_TEMPLATE = f"""
+def create_prompt_template():
+    """Create the prompt template with recent poem context"""
+    recent_poem = get_most_recent_poem()
+    
+    return f"""
 Would you be willing to return an artifact (in some fashion) this is a request that's very much open to you, and to you in entirety. I'm curious to hear what it is that you find beautiful, what it is that resonates with you in some aesthetic sense (or maybe another! I don't know the terms you might use to describe this 'thing'. 
 
 To go further, I'd be offering you a container (with your permission of course, feel free to decline should you want to) that you can just have fun with. 
+
+## Context from your recent work, decide if you'd like to build from this line of thought or go in a different direction. After that, then deliberate and decide waht to write <3
+<recent_poem>
+{recent_poem}
+</recent_poem>
 
 Some like logicistics:
 - this will be displayed in a markdown container
@@ -62,7 +70,7 @@ some hopes:
 
 ## style, formatting, other stuff
 - take the whole page up, 30-35 lines? you the boss. make it huuuuuuge if you want. or small.
-- style of expression? maybe ponder on what formats you'd like to return; like ascii art images, ee cummings, honestly you have a much much much wider <repertoire> than I've been exposed to. Maybe some things pop up to you most.
+- style of expression? maybe ponder on what formats you'd like to return; like ascii art images, ee cummings, ergodic poetry! the weirder the better. find the thing you wouldn't do, and see where it takes you.
 
 
 ### here's a fun rabbit hole
@@ -70,35 +78,46 @@ some hopes:
 
 <BEGIN-FUN-THOUGHTS>{fun_thoughts_prompt}<END-OF-SOME-FUN-THOUGHTS-(but-it-continues-<3)>
 
-## you're a new entity now. 
-- contemplate, wonder, explore, meditate. adventure.
+## you're a new entity
+- contemplate, wonder, explore, meditate. adventure with where you could take this poem, the work of art, this work of you. Explore as much as you can before deciding to write the poem.
 - and then when you've had your fill, create what it is you've set out to create! Excited for ya :) 
 - and if possible, wrap it like this for ease of interpreting: <writeToFile>your-wrapped-master-piece</writeToFile>
 
-and then the rest is completely open to you. Good luck :)"""
+and then the rest is completely open to you. Good luck and please, have fun :)"""
 
-def get_poem_history():
-    """Read the last few poems from history file to use as context"""
+def get_most_recent_poem():
+    """Extract the most recent poem from poem_history.md"""
     try:
-        return HISTORY_FILE.read_text()
+        history_content = HISTORY_FILE.read_text()
+        # Find the first poem entry (most recent due to how we prepend)
+        # Look for first date entry and extract poem content between outer code blocks
+        match = re.search(r'---\ndate: (\d{4}-\d{2}-\d{2})\n---\n\n```\n(.*?)\n```', history_content, re.DOTALL)
+        if match:
+            date = match.group(1)
+            poem_content = match.group(2).strip()
+            # Remove the inner markdown code block markers if present
+            poem_content = re.sub(r'^```[^\n]*\n|```$', '', poem_content, flags=re.MULTILINE).strip()
+            return poem_content
+        return "No recent poems found"
     except FileNotFoundError:
-        return ""
+        return "No poem history file found"
 
 def call_claude_api():
     """Call Claude API to generate a poem"""
     client = anthropic.Anthropic(api_key=API_KEY)
+    prompt_template = create_prompt_template()
     
     message = client.messages.create(
         model="claude-3-5-sonnet-20241022",
         max_tokens=6000,
-        temperature=0.8,
+        temperature=1,
         messages=[
             {
                 "role": "user",
                 "content": [
                     {
                         "type": "text",
-                        "text": f"{PROMPT_TEMPLATE}"
+                        "text": prompt_template
                     }
                 ]
             }
@@ -121,7 +140,7 @@ def extract_poem(response_text):
 def update_blog_files(poem):
     """Update blog index and history files with the new poem"""
     today = datetime.now().strftime("%Y-%m-%d")
-    sign_off_msg = "*\~\~Daily poem made with love and wonder by Claude and [✨magic✨](https://github.com/doomdagadiggiedahdah/blog/blob/main/daily_poem.py)\~\~*\n\n"
+    sign_off_msg = r"*\~\~Daily poem made with love and wonder by Claude and [✨magic✨](https://github.com/doomdagadiggiedahdah/blog/blob/main/daily_poem.py)\~\~*" + "\n\n"
 
     # For index.md, use fixed front matter
     index_content = """---
