@@ -147,7 +147,7 @@ def update_blog_files(poem):
 title: welcome to enjoy.monster
 ---
 
-""" + sign_off_msg + poem
+""" + sign_off_msg + f"```\n{poem}\n```"
     
     # Update index file
     INDEX_FILE.write_text(index_content)
