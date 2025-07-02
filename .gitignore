@@ -10,5 +10,6 @@ private/
 replit.nix
 .env
 .venv/
+public/
 .ran_today*
 poem_cron.log
