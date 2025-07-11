@@ -94,7 +94,7 @@ If you're already math inclined, U-Substitutions have probably made your life mu
 I'll hereby designate "these things" as...
 
 ### "Problem Reformations"
-Just as it sounds, [put a problem in a different form](https://enjoy.monster/blog/joy_diss) and it can sometimes become much easier. Ok!
+Just as it sounds, [put a problem in a different form](https://enjoy.monster/blog/joy-diss) and it can sometimes become much easier. Ok!
 
 ---
 
