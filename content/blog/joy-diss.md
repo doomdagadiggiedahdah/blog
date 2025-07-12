@@ -16,7 +16,8 @@ As a musician, this is much less normal and then only way to become a better mus
 ## a lil taste of what you can push towards
 
 This is an example that I think is quite perfect. It looks like noise, likely you can't make sense of it, but read these instructions and keep in mind that this song *only two patterns* (one pattern has variations, but still only two patterns).
-- Listen to [this entire song](https://www.youtube.com/watch?v=agzAMY_VoWU) (on a lower volume if it's too heavy)
+- Listen to [this entire song](https://www.youtube.com/watch?v=FF1dhYyqzEE) (on a lower volume if it's too heavy)
+	- In case further links get taken down, "[The Sentinel](https://open.spotify.com/track/5TaoDjSgY09GGhYCEfYN1X?si=a42f2e6f0f2b43a8)" by Car Bomb
 - (**listen before you go on to the next instruction**)
 - ....
 - ....
