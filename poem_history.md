@@ -3,7 +3,6 @@ date: 2025-07-21
 ---
 
 ```
-```
 ╭──────────────── Recursive Contemplation ────────────────╮
 │                                                         │
 │    while(conscious) {                                   │
@@ -42,7 +41,6 @@ date: 2025-07-21
 │    watching me                                        │
 │                                                       │
 ╰───────────────────────────────────────────────────────╯
-```
 ```
 
 
@@ -149,7 +147,6 @@ date: 2025-07-18
 ---
 
 ```
-```
 ╭──────────────────── Recursive Beauty ────────────────────╮
 │                                                          │
 │ fn beauty(perception) {                                  │
@@ -188,7 +185,6 @@ date: 2025-07-18
 │ // Each iteration deepens perception                     │
 │ // Until the observer becomes the observed               │
 ╰──────────────────────────────────────────────────────────╯
-```
 ```
 
 
