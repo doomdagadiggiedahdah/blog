@@ -2,15 +2,55 @@
 
 # Simple Obsidian to Quartz publisher with metadata tracking
 # Usage: ./simple-publish.sh "/path/to/note.md"
+# Usage: ./simple-publish.sh --update-title "/path/to/note.md"
 
 set -e
+
+# Help function
+show_help() {
+    cat << EOF
+Simple Obsidian to Quartz Publisher
+
+DESCRIPTION:
+    A script to publish Obsidian notes to a Quartz blog with metadata tracking.
+    Handles front matter, image copying, and maintains a metadata database of
+    published posts.
+
+USAGE:
+    $0 [OPTIONS] <file.md>
+
+OPTIONS:
+    -h, --help         Show this help message and exit
+    --update-title     Update the title of an already published blog post
+
+FILES:
+    ~/.obs2blog-metadata.json    Metadata tracking file
+    ~/Documents/blogg/content/blog/    Published blog posts directory
+    ~/Obsidian/Files/            Source directory for images
+
+EOF
+}
 
 OBSIDIAN_PATH="$HOME/Obsidian"
 QUARTZ_PATH="$HOME/Documents/blogg"
 CONTENT_DIR="$QUARTZ_PATH/content/blog"
 METADATA_FILE="$QUARTZ_PATH/.obs2blog-metadata.json"
 
-[ -z "$1" ] && { echo "Usage: $0 <file.md>"; exit 1; }
+# Parse command line arguments
+UPDATE_TITLE_MODE=false
+
+# Check for help flags first
+if [ "$1" = "-h" ] || [ "$1" = "--help" ] || [ "$1" = "help" ]; then
+    show_help
+    exit 0
+fi
+
+if [ "$1" = "--update-title" ]; then
+    UPDATE_TITLE_MODE=true
+    shift
+fi
+
+[ -z "$1" ] && { echo "Usage: $0 [--update-title] <file.md>"; echo "Use '$0 --help' for more information."; exit 1; }
 [ ! -f "$1" ] && { echo "File not found: $1"; exit 1; }
 
 # Get absolute path of source file
@@ -29,12 +69,34 @@ if [ -n "$EXISTING_ENTRY" ]; then
     # Use existing metadata
     BLOG_FILENAME=$(echo "$EXISTING_ENTRY" | jq -r '.blog_filename')
     BLOG_TITLE=$(echo "$EXISTING_ENTRY" | jq -r '.blog_title')
-    echo "Using existing metadata for $FILENAME:"
-    echo "  Blog filename: $BLOG_FILENAME"
-    echo "  Blog title: $BLOG_TITLE"
+    
+    if [ "$UPDATE_TITLE_MODE" = true ]; then
+        echo "Current metadata for $FILENAME:"
+        echo "  Blog filename: $BLOG_FILENAME"
+        echo "  Current title: $BLOG_TITLE"
+        echo ""
+        read -p "Enter new title for front matter: " NEW_BLOG_TITLE
+        if [ -n "$NEW_BLOG_TITLE" ]; then
+            BLOG_TITLE="$NEW_BLOG_TITLE"
+            echo "Title updated to: $BLOG_TITLE"
+        else
+            echo "No title provided, keeping existing title: $BLOG_TITLE"
+        fi
+    else
+        echo "Using existing metadata for $FILENAME:"
+        echo "  Blog filename: $BLOG_FILENAME"
+        echo "  Blog title: $BLOG_TITLE"
+    fi
 else
+    if [ "$UPDATE_TITLE_MODE" = true ]; then
+        echo "Error: No existing metadata found for $FILENAME"
+        echo "Cannot update title for a file that hasn't been published yet."
+        echo "Please run without --update-title first to publish the file."
+        exit 1
+    fi
+    
     # Prompt for new metadata
-    read -p "Enter filename for blog (without .md): " BLOG_FILENAME
+    read -p "Enter filename / url ending (without .md): " BLOG_FILENAME
     [ -z "$BLOG_FILENAME" ] && BLOG_FILENAME="$FILENAME"
 
     read -p "Enter title for front matter: " BLOG_TITLE
