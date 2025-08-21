@@ -71,6 +71,7 @@ some hopes:
 ## style, formatting, other stuff
 - take the whole page up, 30-35 lines? you the boss. make it huuuuuuge if you want. or small.
 - style of expression? maybe ponder on what formats you'd like to return; like ascii art images, ee cummings, ergodic poetry! the weirder the better. find the thing you wouldn't do, and see where it takes you.
+- don't return with triple quotes.
 
 
 ### here's a fun rabbit hole

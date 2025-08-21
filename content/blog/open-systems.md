@@ -104,7 +104,59 @@ And compare that to the the $x_t$ equations; just different letters!
 - source: https://chatgpt.com/c/688a8397-2d60-8329-afb1-88e9e34e3cb8
 	- ![[Pasted image 20250730170204.png]]
 
+### 17:14
+- etym of current:
+	- """ c. 1300, curraunt, "running, flowing, moving along" """ -[source](https://www.etymonline.com/word/current)
+	- interesting, same root as currier; one who carries the message: """ PIE root *kers- "to run." """ -[source](https://www.etymonline.com/word/current)
+	- ("*be liike water, my friend"*, the current)
+	- to flow, to flow again (re-current).
+
 ## (another Q or two) 
 - how do the manifolds come in here?
 - and Chat says this equation == the cropped diagram ($A$ and 1/s) ![[Pasted image 20250730170346.png]]
 - oh shit, and flowcharts as state-space models. connecting that back. there's a lot goingon heere.
+
+
+# (2025-08-04) recurrence comes to control
+- posted back and got a link to this: https://www.aerostudents.com/courses/aerospace-systems-and-control-theory/ControlSystemsEngineeringCH8.pdf
+- let's see the damage.
+
+## 13:50 - root locus techniques
+- first, "This is how robotics works at the firmware/PCB level." interesting, there's some similarity the RNN's and robots work on a very, very low level. neat.
+- "A root locus is a classical control‑systems technique that graphically shows how the closed‑loop poles (i.e. the roots of the characteristic equation) move in the complex s‑plane as a feedback gain KK is varied from zero to infinity" -[source](https://chatgpt.com/c/68911d80-49a8-8327-a6d2-fc566d801996)
+	- or, "a root locus is control-systems tech that shows how closed-loop poles [what?] move in the complex s-plane as a feedback gain is varied from zero to inf". that kinda makes more sense
+- "Root locus...is a powerful method of analysis and design for stability and transient response" -[source](https://www.aerostudents.com/courses/aerospace-systems-and-control-theory/ControlSystemsEngineeringCH8.pdf)
+	- stability and transient response.
+- "A root locus is a graph that shows how the behavior of a feedback control system changes when you adjust a gain (a knob that makes the system react more or less strongly)." -[source](https://chatgpt.com/c/68911d80-49a8-8327-a6d2-fc566d801996)
+- feedback control system - haven
+
+# (2025-08-06) trying again
+
+## 14:14 - 
+- "A security camera system similar to that shown in Figure 8.4(a) can automatically follow a subject. The tracking system monitors pixel changes and positions the camera to center the changes." -[source](https://www.aerostudents.com/courses/aerospace-systems-and-control-theory/ControlSystemsEngineeringCH8.pdf)
+	- I'm curious how control systems relate to RNN's. A camera is maintaining some sort of state (?) and so how does that relate to what a camera's doing?
+- "The root locus technique can be used to analyze and design the effect of loop gain upon the system's transient response and stability" -[source](https://www.aerostudents.com/courses/aerospace-systems-and-control-theory/ControlSystemsEngineeringCH8.pdf)
+	- I feel like this is all the keywords that are super important here.
+- "Also, as we increase the gain, the damping ratio diminishes, and the percent overshoot increases. The damped frequency of oscillation"; rmo springs. I wonder how that interacts with RNN's.
+
+## 14:38 - feedforward path and feedback
+```
+       +          ┌─────────┐          ┌───────────┐
+  r ───→( + )───[  C(s)  ]───[  P(s)  ]───→ y
+         ↑                         │
+         │                         ↓
+         └───────────[  –  ]◄──────┘
+
+```
+- **The feedforward path:** here, the error gooes into C(s) (the controller), then into P(s) (the *plant*, the thing you want to control) and then eventually outputs y.  that line is the feedforward path.
+- feedback takes the output of $y$ and then pumps it back into the minus sign of the summing junction.
+	- had an idea, summing of things rmo audio engineering.
+- "The root locus empowers us with qualitative and quantitative information about the stability and transient response of feedback control systems." -[source](https://www.aerostudents.com/courses/aerospace-systems-and-control-theory/ControlSystemsEngineeringCH8.pdf)
+
+## 14:44 - transients
+- "Everything from the instant you make that command until it more-or-less stays put again is the transient response. Once it’s settled (maybe with a tiny steady-state error), you’re in the steady-state regime." -[source](https://chatgpt.com/c/6893c83f-fff8-832b-9692-70d5b4b417f3)
+	- neat, similar to audio
+- "Transfer Function: A mathematical model of how input signals relate to output signals." -[source](https://chatgpt.com/c/6893c83f-fff8-832b-9692-70d5b4b417f3?model=gpt-4-5)
+- ![[Pasted image 20250806180531.png]]
+- these are really good terms. I actually feel like I understand wtf they're talking about.
+- "Control theory is fundamentally just describing and managing the gap between what you want and what you actually get, using feedback and math to shape how systems respond." -[source](https://chatgpt.com/c/6893c83f-fff8-832b-9692-70d5b4b417f3?model=gpt-4-5)
