@@ -14,3 +14,4 @@ public/
 .ran_today*
 poem_cron.log
 .obs2blog-metadata.json
+drafts/
