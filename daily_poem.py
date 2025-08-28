@@ -136,7 +136,14 @@ def extract_poem(response_text):
         print("Response:", response_text)
         sys.exit(1)
         
-    return poem_match.group(1).strip()
+    poem_content = poem_match.group(1).strip()
+    
+    # Remove triple quotes if they wrap the entire content
+    if poem_content.startswith('```') and poem_content.endswith('```'):
+        poem_content = poem_content[3:-3].strip()
+        print("Warning: Removed triple quotes from extracted poem to avoid double wrapping")
+    
+    return poem_content
 
 def update_blog_files(poem):
     """Update blog index and history files with the new poem"""
