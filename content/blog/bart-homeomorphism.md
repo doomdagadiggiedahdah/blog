@@ -6,7 +6,7 @@ tags:
 ---
 
 ## intro! and what this post aims to do
-This is a hand hold-y article. This is meant to build intuition around a topic that can be very very complex and can often leave you battered, weak, and frail. I aim not to do that! In fact, basically the whole article is: 
+This is a hand hold-y article. This is meant to build intuition around a topic that can be very very complex and can often leave you battered, weak, and frail. I aim not to do that!
 
 (Though there ended up being much cool stuff here, so may be worth it for you to come back to later.) 
 
@@ -149,8 +149,14 @@ As a result he came up with something like this:
 ((TODO))
 
 To align our BART maps with Euler AND modern terminology, "one replaces each land masses with an abstract '[vertex](https://en.wikipedia.org/wiki/Vertex_\(graph_theory\) "Vertex (graph theory)")' or node, and each bridge with an abstract connection, an '[edge](https://en.wikipedia.org/wiki/Edge_\(graph_theory\) "Edge (graph theory)")' -[source](https://en.wikipedia.org/wiki/Seven_Bridges_of_K%C3%B6nigsberg)
-- "vertex / node" = land mass = BART stop
-- "edge"                = bridge        = train tracks
+
+Or in other words:
+
+| Graph term      | Euler bridge usage | BART usage   |
+| --------------- | ------------------ | ------------ |
+| "vertex / node" | land mass          | BART stop    |
+| "edge"          | bridge             | train tracks |
+
 
 The next thing he realizes is that if a node / land mass / green dot has an odd number of connections, then you end up stuck there! Here's a visual:
 
@@ -190,9 +196,9 @@ Because if that doesn't happen, how else could the graph change? [Here's an inte
 
 But this is still visual, it's not $mathy$ enough. Can we go further? Yes!
 
-### Return of the Invariant
+### Return of the Invariant (when graphs don't change)
 
-First, if these are the same graphs (just moved around): 
+First, if these are the same graphs (just moved around, look at the colored arrows and where they connect to for proof)....
 - ![[Pasted image 20250701213449.png]] ![[Pasted image 20250701213510.png]]
 
 What are the mathematic properties that stay the same? And also, how am I supposed to feed either of these into an algorithm? Feed an image into a number algorithm?
@@ -244,11 +250,39 @@ Node3 [0  0  0  1  1]
 
 We can also look at an interesting example to see what happens when the graph actually does change, with the same bridges!
 
-### When bad graphs go good
+### When bad graphs go good (when graphs do change)
 In WWII (and various other changes) throughout the years, a couple of the bridges of Königsberg were destroyed; how did that change the graph? From https://www.datawrapper.de/blog/euler-bridges-konigsberg, "But with only **five bridges left** in Königsberg, today it _is_ actually possible to find an Euler walk through the city." They then show:
 
 ![[Pasted image 20250701215816.png]]
 
 Different graph! and with different essential characteristics. 
+
+- [ ] could use a thing comparing previous and current graphs to see diff
+- [ ] and showing that you can cross the new bridges easily, just start from an odd degree node
+- [ ] connectivity, or how it is we **can** break things, and that lets us know that we haven't broken things with our other examples (refer back to BART map for more proof)
+- [ ] feel like it needs a wrap up before going to the next. "here's how we connect, here's how it breaks; these allow us to change our maps and not break shit"
+
+## More cool shit from Euler's Bridge
+
+This post was intended to be about the tools in topology that Euler came up with, but in researching it a bunch of new and exciting things came up that were too cool not to share.
+
+- homeomorphic reasoning
+- branches it came up with
+
+
+### not needing exact measurements, what new math does that give us?
+The following gifs are examples of shapes that are homeomorphic to each other ([all from wikipedia](https://en.wikipedia.org/wiki/Topology#Motivation))
+- ![[Mug_and_Torus_morph.gif]]
+- [source](http://www.segerman.org/images/topology_joke.jpg) ![[960px-Topology_joke.jpeg]]
+- The spherical cow you've been hearing so much you've been hearing about![[Spot_the_cow.gif]]
+
+## In conclusion:
+- we looked at different maps and looked at how they can be considered the same type of mathematical object (the "graph")
+- learned about some tools (like homeomorphisms, invariants, and problem reformations) that let us solve problems easier
+- historic problem where this stuff comes from ("you think that's a bridge you're crossing?")
+- looked at memes
+- talked about other cool stuff that the bridges popped up
+- read this here conclusion
+
 
 (WORKING IN PUBLIC; WORK IN PROGRESS)
