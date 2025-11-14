@@ -15,3 +15,4 @@ public/
 poem_cron.log
 .obs2blog-metadata.json
 drafts/
+llm_response_history.md

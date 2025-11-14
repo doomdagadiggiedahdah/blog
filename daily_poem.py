@@ -31,6 +31,7 @@ API_KEY = os.environ.get("ANTHROPIC_API_KEY")
 BLOG_PATH = Path(__file__).parent
 INDEX_FILE = BLOG_PATH / "content/index.md"
 HISTORY_FILE = BLOG_PATH / "poem_history.md"
+LLM_RESPONSE_HISTORY = BLOG_PATH / "llm_response_history.md"
 FUN_THOUGHTS_PROMPT_SOURCE = "/home/mat/Documents/fun-thoughts"
 MAX_HISTORY = 5
 
@@ -109,7 +110,7 @@ def call_claude_api():
     prompt_template = create_prompt_template()
     
     message = client.messages.create(
-        model="claude-3-5-sonnet-20241022",
+        model="claude-haiku-4-5-20251001",
         max_tokens=6000,
         temperature=1,
         messages=[
@@ -187,6 +188,33 @@ date: {today}
     HISTORY_FILE.write_text(limited_history)
     print(f"Updated {HISTORY_FILE} with new poem and limited to {MAX_HISTORY} entries")
 
+def log_llm_response(full_response):
+    """Log the full LLM response to a separate history file with Markdown formatting"""
+    today = datetime.now().strftime("%Y-%m-%d")
+    
+    # Create entry with date header and decorative delimiters
+    response_entry = f"""## {today}
+
+**********
+
+{full_response}
+
+**********
+"""
+    
+    # Read existing history
+    try:
+        existing_history = LLM_RESPONSE_HISTORY.read_text()
+    except FileNotFoundError:
+        existing_history = ""
+    
+    # Prepend new response to history
+    updated_history = response_entry + "\n\n" + existing_history
+    
+    # Write to file
+    LLM_RESPONSE_HISTORY.write_text(updated_history)
+    print(f"Logged full LLM response to {LLM_RESPONSE_HISTORY}")
+
 def push_to_github():
     """Commit changes and push to GitHub"""
     os.chdir(BLOG_PATH)
@@ -210,6 +238,8 @@ if __name__ == "__main__":
     full_api_response = call_claude_api()
     print("\n=== API RESPONSE ===")
     print(full_api_response)
+    
+    log_llm_response(full_api_response)
     
     extracted_poem = extract_poem(full_api_response)
     update_blog_files(extracted_poem)
