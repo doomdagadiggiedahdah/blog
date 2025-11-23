@@ -144,6 +144,8 @@ def extract_poem(response_text):
         poem_content = poem_content[3:-3].strip()
         print("Warning: Removed triple quotes from extracted poem to avoid double wrapping")
     
+    poem_content = re.sub(r'&+[^&]*&+', '', poem_content)
+    
     return poem_content
 
 def update_blog_files(poem):
