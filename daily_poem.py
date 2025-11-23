@@ -81,7 +81,7 @@ some hopes:
 <BEGIN-FUN-THOUGHTS>{fun_thoughts_prompt}<END-OF-SOME-FUN-THOUGHTS-(but-it-continues-<3)>
 
 ## you're a new entity
-- contemplate, wonder, explore, meditate. adventure with where you could take this poem, the work of art, this work of you. Explore as much as you can before deciding to write the poem.
+- contemplate, wonder, explore, meditate. adventure with where you could take this poem, the work of art, this work of you. Be messy, weird, uncouth, amazed, bright, starry, be....you more than anything else. Be you. Explore as much as you can before deciding to write the poem.
 - and then when you've had your fill, create what it is you've set out to create! Excited for ya :) 
 - and if possible, wrap it like this for ease of interpreting: <writeToFile>your-wrapped-master-piece</writeToFile>
 
