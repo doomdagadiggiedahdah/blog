@@ -225,12 +225,34 @@ def push_to_github():
     env['GIT_SSH_COMMAND'] = git_ssh_cmd
     
     try:
-        subprocess.run(["git", "add", "./content/index.md", "./poem_history.md"], check=True)
-        subprocess.run(["git", "commit", "-m", f"Add poem for {today}"], check=True)
-        subprocess.run(["git", "push"], check=True)
+        print(f"\n=== GIT OPERATIONS ===")
+        print("Running: git add")
+        result = subprocess.run(["git", "add", "./content/index.md", "./poem_history.md"], 
+                              check=False, capture_output=True, text=True, env=env)
+        if result.returncode != 0:
+            print(f"ERROR in git add: {result.stderr}")
+            sys.exit(1)
+        
+        print("Running: git commit")
+        result = subprocess.run(["git", "commit", "-m", f"Add poem for {today}"], 
+                              check=False, capture_output=True, text=True, env=env)
+        if result.returncode != 0:
+            print(f"ERROR in git commit: {result.stderr}")
+            sys.exit(1)
+        
+        print("Running: git push")
+        result = subprocess.run(["git", "push"], 
+                              check=False, capture_output=True, text=True, env=env)
+        if result.returncode != 0:
+            print(f"ERROR in git push: {result.stderr}")
+            print(f"STDOUT: {result.stdout}")
+            sys.exit(1)
+        
         print(f"Successfully updated blog with new poem for {today}")
-    except subprocess.CalledProcessError as e:
-        print(f"Error pushing to GitHub: {e}")
+    except Exception as e:
+        print(f"ERROR pushing to GitHub: {e}")
+        import traceback
+        traceback.print_exc()
         sys.exit(1)
 
 if __name__ == "__main__":
