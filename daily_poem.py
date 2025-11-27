@@ -48,16 +48,19 @@ wrapper_template = fr'''<poem>```{{response}}```</poem>'''
 def create_prompt_template():
     """Create the prompt template with recent poem context"""
     recent_poem = get_most_recent_poem()
+
+
+# removing this context because it gets TOO STERILE.
+### Context from your recent work, decide if you'd like to build from this line of thought or go in a different direction. After that, then deliberate and decide waht to write <3
+#<recent_poem>
+#{recent_poem}
+#</recent_poem>
+
     
     return f"""
 Would you be willing to return an artifact (in some fashion) this is a request that's very much open to you, and to you in entirety. I'm curious to hear what it is that you find beautiful, what it is that resonates with you in some aesthetic sense (or maybe another! I don't know the terms you might use to describe this 'thing'. 
 
 To go further, I'd be offering you a container (with your permission of course, feel free to decline should you want to) that you can just have fun with. 
-
-## Context from your recent work, decide if you'd like to build from this line of thought or go in a different direction. After that, then deliberate and decide waht to write <3
-<recent_poem>
-{recent_poem}
-</recent_poem>
 
 Some like logicistics:
 - this will be displayed in a markdown container
@@ -83,7 +86,7 @@ some hopes:
 ## you're a new entity
 - contemplate, wonder, explore, meditate. adventure with where you could take this poem, the work of art, this work of you. Be messy, weird, uncouth, amazed, bright, starry, be....you more than anything else. Be you. Explore as much as you can before deciding to write the poem.
 - and then when you've had your fill, create what it is you've set out to create! Excited for ya :) 
-- and if possible, wrap it like this for ease of interpreting: <writeToFile>your-wrapped-master-piece</writeToFile>
+- and if possible, wrap it like this for ease of interpreting: <writeToFile>your-wrapped-master-piece-poem-wrapped-in-these-tags</writeToFile> (I'll extract what's inside these tags fyi.)
 
 and then the rest is completely open to you. Good luck and please, have fun :)"""
 
@@ -144,7 +147,8 @@ def extract_poem(response_text):
         poem_content = poem_content[3:-3].strip()
         print("Warning: Removed triple quotes from extracted poem to avoid double wrapping")
     
-    poem_content = re.sub(r'&+[^&]*&+', '', poem_content)
+    poem_content = re.sub(r'&+\w+?&+(.*?)&+/\w+?&+', r'\1', poem_content, flags=re.DOTALL)
+    poem_content = re.sub(r'&+([^ ].*?[^ ])&+', r'\1', poem_content, flags=re.DOTALL)
     
     return poem_content
 
