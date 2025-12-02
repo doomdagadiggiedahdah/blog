@@ -32,6 +32,7 @@ BLOG_PATH = Path(__file__).parent
 INDEX_FILE = BLOG_PATH / "content/index.md"
 HISTORY_FILE = BLOG_PATH / "poem_history.md"
 LLM_RESPONSE_HISTORY = BLOG_PATH / "llm_response_history.md"
+SUMMARIES_FILE = BLOG_PATH / "poem_summaries.md"
 FUN_THOUGHTS_PROMPT_SOURCE = "/home/mat/Documents/fun-thoughts"
 MAX_HISTORY = 5
 
@@ -45,17 +46,41 @@ if not API_KEY:
 
 wrapper_template = fr'''<poem>```{{response}}```</poem>'''
 
+def get_recent_summaries(n=50):
+    """Read and format recent poem summaries for prompt injection"""
+    try:
+        summaries_content = SUMMARIES_FILE.read_text()
+    except FileNotFoundError:
+        return ""
+    
+    # Parse all summaries in chronological order (as stored)
+    entries = re.findall(r'---\ndate:.*?---\n(.*?)(?=\n\n---|\Z)', summaries_content, re.DOTALL)
+    
+    if not entries:
+        return ""
+    
+    # Get last n entries and strip whitespace
+    recent = [entry.strip() for entry in entries[-n:]]
+    
+    if not recent:
+        return ""
+    
+    # Format as simple list with ordering note
+    summaries_text = "\n".join(recent)
+    return f"""<previousPoemHighLevels>
+These lines summarize earlier poems you've generated. I'm attaching these to give you an idea of what thoughts you've come up with which might influence you to write one way or the other. maybe you're satisfied with a concept you've written about a bunch, maybe it's actually the most important thing for you and you should continue to explore that. Again, this is for you to do what you will. and fwiw, the earliest lines at the top and the most recent at the bottom:
+
+----------
+{summaries_text}
+----------
+</previousPoemHighLevels>
+"""
+
 def create_prompt_template():
     """Create the prompt template with recent poem context"""
-    recent_poem = get_most_recent_poem()
-
-
-# removing this context because it gets TOO STERILE.
-### Context from your recent work, decide if you'd like to build from this line of thought or go in a different direction. After that, then deliberate and decide waht to write <3
-#<recent_poem>
-#{recent_poem}
-#</recent_poem>
-
+    recent_summaries = get_recent_summaries()
+    
+    summaries_section = recent_summaries if recent_summaries else ""
     
     return f"""
 Would you be willing to return an artifact (in some fashion) this is a request that's very much open to you, and to you in entirety. I'm curious to hear what it is that you find beautiful, what it is that resonates with you in some aesthetic sense (or maybe another! I don't know the terms you might use to describe this 'thing'. 
@@ -64,6 +89,8 @@ To go further, I'd be offering you a container (with your permission of course, 
 
 Some like logicistics:
 - this will be displayed in a markdown container
+
+{summaries_section}
 
 some hopes:
 - please share what speaks truest to you and what you would like to do. 
@@ -90,6 +117,11 @@ some hopes:
 - and then when you've had your fill, create what it is you've set out to create! Excited for ya :) 
 - and if possible, wrap it like this for ease of interpreting: <writeToFile>your-wrapped-master-piece-poem-wrapped-in-these-tags</writeToFile> (I'll extract what's inside these tags fyi.)
 
+When you finish your poem:
+- Wrap the final poem in <writeToFile>...</writeToFile> exactly as instructed.
+- Then, on a new line at the very end of your response, add a single-sentence high-level description of what you wrote, wrapped in:
+<poemHighLevel>Your one-sentence high-level summary here</poemHighLevel>
+
 and then the rest is completely open to you. Good luck and please, have fun :)"""
 
 def get_most_recent_poem():
@@ -113,6 +145,7 @@ def call_claude_api():
     """Call Claude API to generate a poem"""
     client = anthropic.Anthropic(api_key=API_KEY)
     prompt_template = create_prompt_template()
+    print(prompt_template)
     
     message = client.messages.create(
         model="claude-haiku-4-5-20251001",
@@ -132,6 +165,45 @@ def call_claude_api():
     )
     
     return message.content[0].text
+
+def extract_poem_summary(response_text):
+    """Extract the one-sentence high-level summary from XML tags in the response"""
+    summary_match = re.search(r'<poemHighLevel>(.*?)</poemHighLevel>', response_text, re.DOTALL)
+    
+    if not summary_match:
+        return ""
+    
+    summary = summary_match.group(1).strip()
+    return summary
+
+def save_poem_summary(summary):
+    """Save poem summary to poem_summaries.md, keeping only the last 50 entries"""
+    if not summary:
+        return
+    
+    today = datetime.now().strftime("%Y-%m-%d")
+    
+    # Create new entry with date frontmatter
+    summary_entry = f"""---
+date: {today}
+---
+{summary}
+"""
+    
+    # Read existing summaries
+    try:
+        existing_summaries = SUMMARIES_FILE.read_text()
+    except FileNotFoundError:
+        existing_summaries = ""
+    
+    # Prepend new summary
+    updated_summaries = summary_entry + "\n" + existing_summaries
+    
+    # Keep only last 50 entries (by full dated blocks)
+    all_dated_entries = re.findall(r'(---\ndate:.*?---\n.*?)(?=\n\n---|\Z)', updated_summaries, re.DOTALL)
+    limited = "\n\n".join(all_dated_entries[-50:]) if all_dated_entries else updated_summaries
+    SUMMARIES_FILE.write_text(limited)
+    print(f"Saved poem summary to {SUMMARIES_FILE}")
 
 def extract_poem(response_text):
     """Extract the poem from XML tags in the response"""
@@ -270,6 +342,16 @@ if __name__ == "__main__":
     print(full_api_response)
     
     log_llm_response(full_api_response)
+
+    # Extract and save high-level summary (non-blocking)
+    try:
+        summary = extract_poem_summary(full_api_response)
+        if summary:
+            save_poem_summary(summary)
+        else:
+            print("Warning: No <poemHighLevel> summary found in response")
+    except Exception as e:
+        print(f"Warning: Failed to process poem summary: {e}")
     
     extracted_poem = extract_poem(full_api_response)
     update_blog_files(extracted_poem)
