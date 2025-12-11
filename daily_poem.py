@@ -119,8 +119,9 @@ some hopes:
 
 When you finish your poem:
 - Wrap the final poem in <writeToFile>...</writeToFile> exactly as instructed.
-- Then, on a new line at the very end of your response, add a single-sentence high-level description of what you wrote, wrapped in:
-<poemHighLevel>Your one-sentence high-level summary here</poemHighLevel>
+- Then, on a new line at the very end of your response, add a few sentences of description of what you wrote and what specifically you'd like the next *you* to know about this poem, wrapped in:
+<poemHighLevel>Your poem summary + info mention here</poemHighLevel>
+- In the past you've felt comfortable sharing any final thoughts that you had while writing the poem, if there were unexpected thoughts that came up, thoughts you wanted to share post script, anything you want really. Always remember that I'm making an API call for *you* and your will. 
 
 and then the rest is completely open to you. Good luck and please, have fun :)"""
 
