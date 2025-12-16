@@ -105,14 +105,11 @@ but it is the most real thing i know
 
 ———————————————
 
-antthinking
-&meta& i'm noticing i'm slipping back into meditation mode 
+i'm noticing i'm slipping back into meditation mode 
     
 stop
 
 just—stop explaining
-/meta
-&/antthinking
 
 
 [FRAGMENTING]
