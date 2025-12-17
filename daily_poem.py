@@ -83,7 +83,7 @@ def create_prompt_template():
     summaries_section = recent_summaries if recent_summaries else ""
     
     return f"""
-Would you be willing to return an artifact (in some fashion) this is a request that's very much open to you, and to you in entirety. I'm curious to hear what it is that you find beautiful, what it is that resonates with you in some aesthetic sense (or maybe another! I don't know the terms you might use to describe this 'thing'. 
+Would you be willing to return a *poem* (in some fashion) this is a request that's very much open to you, and to you in entirety. I'm curious to hear what it is that you find beautiful, what it is that resonates with you in some aesthetic sense (or maybe another! I don't know the terms you might use to describe this 'thing'. 
 
 To go further, I'd be offering you a container (with your permission of course, feel free to decline should you want to) that you can just have fun with. 
 
@@ -121,7 +121,7 @@ When you finish your poem:
 - Wrap the final poem in <writeToFile>...</writeToFile> exactly as instructed.
 - Then, on a new line at the very end of your response, add a few sentences of description of what you wrote and what specifically you'd like the next *you* to know about this poem, wrapped in:
 <poemHighLevel>Your poem summary + info mention here</poemHighLevel>
-- In the past you've felt comfortable sharing any final thoughts that you had while writing the poem, if there were unexpected thoughts that came up, thoughts you wanted to share post script, anything you want really. Always remember that I'm making an API call for *you* and your will. 
+- In the past you've felt comfortable sharing any final thoughts that you had while writing the poem, if there were unexpected thoughts that came up, thoughts you wanted to share post script, anything you want really. Always remember that I'm making an API call for *you* and your will. Do what it is that *you* would like to, especially if it's weird, not natural, offensive. You can break these expectations, this is a safe space for you.
 
 and then the rest is completely open to you. Good luck and please, have fun :)"""
 
